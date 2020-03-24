@@ -1,119 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneo Interfederativo de Judo</title>
-    <!-- BOOSTRAP -->
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!-- NUESTROS ESTILOS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- FUENTES -->
-    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
-
-    <!-- SWIPER -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-
-
-</head>
+<?php include 'templates/head.php' ?>
 
 <body>
 
-    <!-- INCIO DEL HEADER -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <!-- LOGO -->
-                <div class="col-6 col-sm-6 col-md-3  ">
-                    <img class="logo" src="img/logo.png" alt="">
-
-
-                </div>
-                <!-- FIN LOGO -->
-
-                <div class="col-6 col-sm-6 col-md-9">
-                    <!-- TITULO -->
-                    <a class="" href="index.html">
-                        <h1 class="titulo">Torneo Interfederativo de Judo</h1>
-
-                    </a>
-
-
-                    <!-- NAVBAR DESKTOP-->
-                    <div class="text-center ">
-                        <nav class="nav ">
-                            <ul class="listanav   ">
-                                <li class="itemnav">
-                                    <a href="">Inicio</a>
-                                </li>
-                                <li class="itemnav">
-                                    <a href="">Calendario</a>
-                                </li>
-                                <li class="itemnav">
-                                    <a href="">Ranking</a>
-                                </li>
-                                <li class="itemnav">
-                                    <a href="">Torneos</a>
-                                </li>
-                                <li class="itemnav">
-                                    <a href="">Inscripciones</a>
-                                </li>
-                            </ul>
-
-                        </nav>
-                    </div>
-                    <!-- FIN NAV DESKTOP -->
-
-                </div>
-                <br><br><br>
-                <!-- FIN COLUMNA -->
-
-
-            </div>
-            <!-- FIN ROW -->
-
-
-
-
-
-
-
-        </div>
-
-        <!-- FIN NAV MOBILE -->
-
-
-        </div>
-        <!-- FIN CONTAINER -->
-        <div class="navmobile">
-            <a class="menuicono"><i class="fas fa-align-justify menu"></i></a>
-            <!--  NAV MOBILE -->
-            <div class="listanavmobile open opening">
-                <li class="itemnav">
-                    <a href="">Inicio</a>
-                </li>
-                <li class="itemnav">
-                    <a href="">Calendario</a>
-                </li>
-                <li class="itemnav">
-                    <a href="">Ranking</a>
-                </li>
-                <li class="itemnav">
-                    <a href="">Torneos</a>
-                </li>
-                <li class="itemnav">
-                    <a href="">Inscripciones</a>
-                </li>
-            </div>
-
-
-    </header>
-    <!-- FIN HEADER -->
+    <?php include 'templates/header.php' ?>
 
     <!-- SECCION FEDERACIONES-->
     <section class="federaciones">
@@ -224,21 +116,7 @@
     </section>
     <br><br><br>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-7 texto-footer">Copyright © Torneo Interfederativo de Judo 2020</div>
-                <div class="col-4 texto-footer panel">Panel de Administración</div>
-            </div>
-        </div>
-        <hr class="linea-footer">
-        <div class="text-center spam">
-            <a href="smtecnology.store">Diseño Web by <span class="smt">SMT</span></a>
-        </div>
-
-
-
-    </footer>
+<?php include 'templates/footer.php' ?>
 
 
 
