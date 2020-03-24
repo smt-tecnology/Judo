@@ -1,0 +1,278 @@
+/* GLOBALES */
+
+li {
+    list-style: none;
+}
+
+h2.titulo-body {
+    font-size: 40px;
+    font-family: 'anton';
+    color: #010B56;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@font-face {
+    font-family: "Fun City Level2";
+    src: url(../font/FunCityLevel2Stencil.otf);
+}
+
+
+/* ------------------ HEADER ------------------ */
+
+.header {
+    background-color: #010B56;
+}
+
+.logo {
+    width: 100%;
+    max-width: 130px;
+}
+
+.header .row {
+    padding: 5px;
+}
+
+
+/* titulo */
+
+.federaciones {
+    margin: 30px 0;
+}
+
+a.titulo {
+    text-decoration: none;
+}
+
+h1.titulo {
+    color: #fff;
+    font-family: 'Trade Winds', cursive;
+    margin-top: 25px;
+}
+
+.navmobile {
+    display: none;
+}
+
+
+/* nav */
+
+.listanav {
+    display: flex;
+    list-style: none;
+}
+
+.itemnav {
+    padding: 0 20px;
+}
+
+.itemnav a {
+    color: #fff;
+    font-family: Raleway;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.itemnav a:hover {
+    color: grey;
+    transition: .3s all ease-out;
+}
+
+
+/* ------------------ FIN HEADER ------------------ */
+
+
+/* ------------------ FEDERACIONES ------------------ */
+
+.federacion img {
+    width: 60%;
+}
+
+.federacion p {
+    font-family: Raleway;
+}
+
+
+/* ------------------ FIN FEDERACIONES ------------------ */
+
+
+/* ------------------  GALERIA ------------------ */
+
+.galeria {
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+
+.imagen-galeria img {
+    width: 100%;
+    position: relative;
+}
+
+.imagen-galeria {
+    background-color: black;
+    text-align: center;
+}
+
+.club-galeria {
+    font-family: 'Oswald';
+}
+
+.titulo-imagen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.videos iframe {
+    width: 90%;
+}
+
+
+/* ------------------ FIN GALERIA ------------------ */
+
+
+/* ------------------ INSCRIPCIONES ------------------ */
+
+.inscripciones-parrafo {
+    font-size: 30px;
+    font-family: Raleway;
+}
+
+.boton-inscripcion {
+    margin-top: 50px;
+}
+
+.boton-inscripcion a {
+    color: #010B56;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 30px;
+    font-family: Raleway;
+    border: 4px solid #010B56;
+    border-radius: 360px;
+}
+
+.boton-inscripcion a:hover {
+    color: #fff;
+    background-color: #010B56;
+    transition: .3s all ease-in;
+}
+
+
+/* ------------------ FIN INSCRIPCIONES ------------------ */
+
+
+/* ------------------ FOOTER ------------------ */
+
+.footer {
+    background-color: #010B56;
+}
+
+.texto-footer {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.panel {
+    text-align: right;
+}
+
+.linea-footer {
+    color: white;
+}
+
+.linea-footer {
+    background-color: white;
+}
+
+.spam a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.spam {
+    padding: 20px;
+}
+
+.smt {
+    font-family: 'Fun City Level2';
+    color: red;
+}
+
+
+/* ------------------ FIN FOOTER ------------------ */
+
+
+/* MEDIA */
+
+@media (max-width: 992px) {
+    h1.titulo {
+        font-size: 32px;
+    }
+    .itemnav {
+        padding: 0 10px;
+    }
+    .texto-footer {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1.titulo {
+        font-size: 32px;
+        text-align: center;
+    }
+    .logo {
+        margin: 10px;
+    }
+    .navmobile {
+        text-align: center;
+        display: block;
+        padding: 10px;
+    }
+    .listanav {
+        display: none;
+    }
+    .open {
+        display: block;
+    }
+    .opening {
+        display: none;
+    }
+    .open li {
+        padding: 10px 0;
+        font-size: 25px;
+    }
+    .menu {
+        color: white;
+        font-size: 50px;
+    }
+    .inscripciones-parrafo {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    h1.titulo {
+        font-size: 21px;
+        text-align: center;
+    }
+    .logo {
+        width: 80%;
+    }
+    h3.club-galeria {
+        font-size: 25px;
+    }
+    .carousel-control-next span {
+        margin-right: 25px;
+    }
+    .carousel-control-prev .prev {
+        margin-left: 25px;
+    }
+    .videos iframe {
+        width: 80%;
+    }
+}
