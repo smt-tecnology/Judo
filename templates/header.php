@@ -12,7 +12,7 @@
 
                 <div class="col-6 col-sm-6 col-md-9">
                     <!-- TITULO -->
-                    <a class="" href="index.html">
+                    <a class="titulo" href="index.php">
                         <h1 class="titulo">Torneo Interfederativo de Judo</h1>
 
                     </a>

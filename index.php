@@ -125,7 +125,7 @@
 
 </body>
 
-<?php include 'templates/scritps.php' ?>
+<?php include 'templates/scripts.php' ?>
 
 
 

@@ -5,7 +5,9 @@
 <!-- HEADER -->
 <?php include 'templates/header.php' ?>
 
-
+<section class="torneos">
+        <h2 class="titulo-body">Torneos</h2>
+    </section>
 <!-- FOOTER -->
 <?php include 'templates/footer.php' ?>   
 

@@ -206,6 +206,24 @@ h1.titulo {
 /* ------------------ FIN FOOTER ------------------ */
 
 
+/* ------------------  CALENDARIO ------------------ */
+
+.mes-calendario {
+    background-color: #010B56;
+}
+
+.mes-calendario h2 {
+    color: #fff;
+    font-family: Raleway;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+}
+
+
+/* ------------------ FIN CALENDARIO ------------------ */
+
+
 /* MEDIA */
 
 @media (max-width: 992px) {
