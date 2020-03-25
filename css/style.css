@@ -220,8 +220,11 @@ h1.titulo {
     padding: 5px;
 }
 
+.torneo {
+    font-weight: 700;
+}
+
 .card {
-    color: #010B56;
     color: #010B56;
     font-family: Raleway;
     font-weight: 700;
