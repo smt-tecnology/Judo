@@ -12,8 +12,8 @@
             <div class="mes-calendario">
                 <h2> <i class="far fa-calendar-alt"></i> FEBRERO</h2>
             </div>
-            <div class="row">
-                <div class="col-md-4  text-center card">
+            <div class="row columnas">
+                <div class="col-sm 12 col-md-3  text-center card">
                     <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info">
@@ -26,10 +26,10 @@
                     </div>
                     <div class="info">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
-                <div class="col-md-4 text-center  card">
+                <div class="col-sm 12 col-md-3 text-center  card">
                     <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class=" info ">
@@ -42,10 +42,10 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
-                <div class="col-md-4 card text-center">
+                <div class=" col-sm 12 col-md-3 card text-center">
                     <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
@@ -58,15 +58,15 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
             </div>
             <div class="mes-calendario ">
                 <h2> <i class="far fa-calendar-alt "></i> FEBRERO</h2>
             </div>
-            <div class="row ">
-                <div class="col-md-4 card text-center ">
+            <div class="row columnas  ">
+                <div class="col-sm 12 col-md-3 card text-center ">
                     <h5 class="torneo ">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
@@ -79,10 +79,10 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
-                <div class="col-md-4 card text-center ">
+                <div class="col-sm 12 col-md-3 card text-center ">
                     <h5 class="torneo ">Nombre del Torneo</h5>
                     <hr>
                     <div class=" info ">
@@ -95,10 +95,10 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
-                <div class="col-md-4 card text-center ">
+                <div class="col-sm 12 col-md-3 card text-center ">
                     <h5 class="torneo ">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
@@ -111,15 +111,15 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
             </div>
             <div class="mes-calendario ">
                 <h2> <i class="far fa-calendar-alt "></i> FEBRERO</h2>
             </div>
-            <div class="row ">
-                <div class="col-md-4 card text-center ">
+            <div class="row columnas  ">
+                <div class="col-sm 12 col-md-3 card text-center ">
                     <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
@@ -132,10 +132,10 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
-                <div class="col-md-4 card  text-center">
+                <div class=" col-sm 12 col-md-3 card  text-center">
                     <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
@@ -148,10 +148,10 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
-                <div class="col-md-4 card  text-center">
+                <div class="col-sm 12 col-md-3 card  text-center">
                     <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
@@ -164,7 +164,7 @@
                     </div>
                     <div class="info ">
                         <i class="fas fa-map-marker-alt "></i>
-                        <p>22/02</p>
+                        <p>Av. Castro Barros 5672, CABA</p>
                     </div>
                 </div>
             </div>
