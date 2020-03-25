@@ -7,7 +7,7 @@
         </div>
         <hr class="linea-footer">
         <div class="text-center spam">
-            <a href="smtecnology.store">Diseño Web by <span class="smt">SMT</span></a>
+            <a href="https://smtecnology.store">Diseño Web by <span class="smt">SMT</span></a>
         </div>
 
 

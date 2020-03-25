@@ -69,19 +69,19 @@
             <!--  NAV MOBILE -->
             <div class="listanavmobile open opening">
                 <li class="itemnav">
-                    <a href="">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="itemnav">
-                    <a href="">Calendario</a>
+                    <a href="calendario.php">Calendario</a>
                 </li>
                 <li class="itemnav">
-                    <a href="">Ranking</a>
+                    <a href="ranking.php">Ranking</a>
                 </li>
                 <li class="itemnav">
-                    <a href="">Torneos</a>
+                    <a href="torneos.php">Torneos</a>
                 </li>
                 <li class="itemnav">
-                    <a href="">Inscripciones</a>
+                    <a href="inscripciones.php">Inscripciones</a>
                 </li>
             </div>
 
