@@ -120,7 +120,7 @@
             </div>
             <div class="row ">
                 <div class="col-md-4 card text-center ">
-                    <h5>Nombre del Torneo</h5>
+                    <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
                         <i class="fas fa-calendar-day "></i>
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 card  text-center">
-                    <h5>Nombre del Torneo</h5>
+                    <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
                         <i class="fas fa-calendar-day "></i>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 card  text-center">
-                    <h5>Nombre del Torneo</h5>
+                    <h5 class="torneo">Nombre del Torneo</h5>
                     <hr>
                     <div class="info ">
                         <i class="fas fa-calendar-day "></i>
