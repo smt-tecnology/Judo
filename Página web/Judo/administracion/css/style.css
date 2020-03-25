@@ -1,0 +1,89 @@
+/************* Global **************/
+@font-face {
+    font-family: "Fun City Level2";
+    src: url(../../font/FunCityLevel2Stencil.otf);
+}
+body {
+    font-family: 'Raleway', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anton', cursive;
+}
+input {
+    font-family: 'Anton', cursive;
+}
+input.text, input.pass {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: #010B56;
+    color: white;
+    font-size: 20px;
+    border: solid 2px white;
+    border-radius: 30px;
+}
+input.submit-white {
+    background-color: white;
+    color: #010B56;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+input.submit-white:hover {
+    background-color: gray;
+    transition: all .2s ease-in;
+}
+/************* Global **************/
+
+/************* Login **************/
+/* Header */
+#header {
+    height: 10vh;
+    background-color: #010B56;
+}
+#header a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+#header a:hover {
+    color: grey;
+    transition: all .2s ease-in-out;
+}
+/* Cuadro de Logeo */
+#login {
+    height: 80vh;
+}
+#login .caja {
+    width: 75vw;
+    padding: 20px;
+    background-color: #010B56;
+}
+#login img {
+    width: 100px;
+    height: 100px;
+}
+#login h1 {
+    color: white;
+}
+#login .separador {
+    border: solid 2px white;
+}
+/* Footer */
+#footer-login {
+    height: 10vh;
+    background-color: #010B56;
+}
+#footer-login .spam a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+#footer-login .smt {
+    font-family: 'Fun City Level2';
+    color: red;
+}
+/************* Login **************/
