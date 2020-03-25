@@ -120,7 +120,7 @@
                         <tr>
                             <td class="competidor ">1</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Seijas, Juan I</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Seijas, Juan I</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -130,7 +130,7 @@
                         <tr>
                             <td class="competidor ">2</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Boca</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">800 pts</td>
@@ -140,7 +140,7 @@
                         <tr>
                             <td class="competidor ">3</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Molina, Francisco</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Molina, Francisco</td>
                             <td class="competidor ">Sacachispa</td>
                             <td class="competidor ">FMJudo</td>
                             <td class="competidor ">500 pts</td>
@@ -150,7 +150,7 @@
                         <tr>
                             <td class="competidor ">4</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -160,7 +160,7 @@
                         <tr>
                             <td class="competidor ">5</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -170,7 +170,7 @@
                         <tr>
                             <td class="competidor ">6</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -180,7 +180,7 @@
                         <tr>
                             <td class="competidor ">7</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -190,7 +190,7 @@
                         <tr>
                             <td class="competidor ">8</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -200,7 +200,7 @@
                         <tr>
                             <td class="competidor ">9</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
@@ -210,7 +210,7 @@
                         <tr>
                             <td class="competidor ">10</td>
                             <td class="competidor competidor-imagen ">
-                                <img src="img/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
+                                <img src="img/inscripciones/4x4.jpg " width="20% " alt=" "> Tamborini, Agustin</td>
                             <td class="competidor ">Independiente</td>
                             <td class="competidor ">FBJudo</td>
                             <td class="competidor ">1000 pts</td>
