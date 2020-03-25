@@ -90,7 +90,7 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/2MpUj-Aua48" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 </div>
-                <div class="col-sm-12 col-md-6 videos"><iframe width="560" height="315" src="https://www.youtube.com/embed/2MpUj-Aua48" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>></div>
+                <div class="col-sm-12 col-md-6 videos"><iframe width="560" height="315" src="https://www.youtube.com/embed/2MpUj-Aua48" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
         </div>\
         <br><br><br>

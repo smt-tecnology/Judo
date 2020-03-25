@@ -220,6 +220,18 @@ h1.titulo {
     padding: 5px;
 }
 
+.card {
+    color: #010B56;
+    color: #010B56;
+    font-family: Raleway;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info i {
+    font-size: 30px;
+}
+
 
 /* ------------------ FIN CALENDARIO ------------------ */
 
