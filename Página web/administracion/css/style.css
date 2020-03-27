@@ -1,0 +1,214 @@
+/************* Elementos y clases globales **************/
+@font-face {
+    font-family: "Fun City Level2";
+    src: url(../../font/FunCityLevel2Stencil.otf);
+}
+:root {
+    /*Colores*/
+    --colorBlanco: #FFFFFF;
+    --colorAzul: #010B56;
+    --colorRojo: #E51B23;
+    --colorGris: #C4C4C4;
+    /*Fuentes*/
+    --tradeWinds: 'Trade Winds', cursive;
+    --anton: 'Anton', cursive;
+    --raleway: 'Raleway', sans-serif;
+    --smt: 'Fun City Level2', cursive;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    font-family: var(--raleway);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--anton);
+}
+input {
+    font-family: var(--anton);
+}
+input.text, input.pass {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    font-size: 20px;
+    border: solid 2px var(--colorBlanco);
+    border-radius: 30px;
+}
+input.submit-white {
+    background-color: var(--colorBlanco);
+    color: var(--colorAzul);
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+input.submit-white:hover {
+    background-color: var(--colorGris);
+    transition: all .2s ease-in;
+}
+.row {
+    margin: 0!important;
+}
+.light-overlay {
+    background-color: rgba(255, 250, 250, 0.6);
+}
+/************* Elementos y clases globales **************/
+
+/************* Header **************/
+#header-admin {
+    background-color: var(--colorAzul);
+    padding: 1rem;
+}
+#header-admin img {
+    width: 12rem;
+    height: 12rem;
+}
+#header-admin h1 {
+    color: var(--colorBlanco);
+    font-family: var(--tradeWinds);
+    font-size: 4rem;
+}
+@media only screen and (max-width: 380px){
+    #header-admin h1 {
+        font-size: 3.5rem;
+    }
+}
+@media only screen and (max-width: 300px){
+    #header-admin h1 {
+        font-size: 2rem;
+    }
+}
+/************* Header **************/
+
+
+/************* Sidebar **************/
+#contenido-principal {
+    width: 95%;
+    transition: all .5s ease-in;
+}
+#sidebar {
+    background-color: var(--colorAzul);
+    width: 5%;
+    min-height: 100vh;
+    transition: all .5s ease-in;
+}
+#sidebar #boton-sidebar {
+    width: 100%;
+    color: var(--colorBlanco);
+    font-size: 2.5rem;
+    margin: 0 5%;
+}
+#sidebar #boton-sidebar:hover {
+    color: var(--colorGris);
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+#sidebar .categoria {
+    width: 100%;
+    transition: all .3s ease-in;
+}
+#sidebar .categoria h2 {
+    font-family: var(--anton);
+    color: var(--colorBlanco);
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+#sidebar .categoria h2 a {
+    font-family: var(--anton);
+}
+#sidebar .categoria i {
+    margin-right: 1rem;
+}
+#sidebar .categoria a {
+    font-family: var(--raleway);
+    font-weight: lighter;
+    color: var(--colorBlanco);
+    text-decoration: none;
+}
+#sidebar .categoria a:hover {
+    color: var(--colorGris);
+    transition: all .2s ease-in;
+}
+@media only screen and (max-width: 900px){
+    #contenido-principal {
+        width: 90%;
+    }
+    #sidebar {
+        width: 10%;
+    }
+}
+@media only screen and (max-width: 480px){
+    #contenido-principal {
+        width: 85%;
+    }
+    #sidebar {
+        width: 15%;
+    }
+}
+/************* Sidebar **************/
+
+
+/************* Footer **************/
+#footer-login {
+    height: 10vh;
+    background-color: var(--colorAzul);
+}
+#footer-login .spam a {
+    text-decoration: none;
+    color: var(--colorBlanco);
+    font-size: 20px;
+}
+#footer-login .smt {
+    font-family: var(--smt);
+    color: var(--colorRojo);
+}
+/************* Footer **************/
+
+
+/************* Login **************/
+/* Header */
+#header {
+    height: 10vh;
+    background-color: var(--colorAzul);
+}
+#header a {
+    color: var(--colorBlanco);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+#header a:hover {
+    color: var(--colorGris);
+    transition: all .2s ease-in-out;
+}
+/* Cuadro de Logeo */
+#login {
+    height: 80vh;
+}
+#login .caja {
+    width: 75vw;
+    padding: 20px;
+    background-color: var(--colorAzul);
+}
+#login img {
+    width: 100px;
+    height: 100px;
+}
+#login h1 {
+    color: var(--colorBlanco);
+}
+#login .separador {
+    border: solid 2px var(--colorBlanco);
+}
+/************* Login **************/

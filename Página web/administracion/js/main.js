@@ -80,6 +80,10 @@ function notificacionError(titulo, mensaje){
         timer: 4500
     });
 }
+//Adicionales
+function calcularWidthPorcentual(width, widthMaximo) {
+    return Math.round(100 * width / widthMaximo);
+}
 /************* Funciones **************/
 
 $(document).ready(function () {
@@ -94,4 +98,52 @@ $(document).ready(function () {
         return false;
     });
     /************* Login **************/
+
+
+    /************* Panel de Administración - Sidebar **************/
+    const botonSidebar = $('#boton-sidebar');
+    const sidebar = $('#sidebar');
+    const categoriasSidebar = $('#sidebar .categorias');
+    const contenidoPrincipal = $('#contenido-principal');
+    let sidebarAbierto = false;
+
+    let widthMaximo = $('#admin-index').css('width');
+        widthMaximo = parseInt(widthMaximo);
+    let sidebarInicial = $(sidebar).css('width');
+        sidebarInicial = parseInt(sidebarInicial);
+        sidebarInicial = calcularWidthPorcentual(sidebarInicial, widthMaximo);
+    let cpInicial = $(contenidoPrincipal).css('width');
+        cpInicial = parseInt(cpInicial);
+        cpInicial = calcularWidthPorcentual(cpInicial, widthMaximo);
+    $(botonSidebar).on('click', function () {
+        if(sidebarAbierto){
+            //Desaparezco el contenido del navbar
+            $(categoriasSidebar).hide(500);
+            //Cierro el navbar
+            $(sidebar).css('width', `${parseInt(sidebarInicial)}%`);
+            $(contenidoPrincipal).css('width', `${parseInt(cpInicial)}%`);
+            //Seteo la variable a cerrado
+            sidebarAbierto = false;
+        }
+        else{
+            let widthSidebar = 0;
+            let widthCP = 0;
+            if(sidebarInicial == 15){
+                widthSidebar = sidebarInicial + 85;
+                widthCP = cpInicial - 85;
+            }
+            else{
+                widthSidebar = sidebarInicial + 30;
+                widthCP = cpInicial - 30;
+            }
+            //Abro el navbar
+            $(sidebar).css('width', `${widthSidebar}%`);
+            $(contenidoPrincipal).css('width', `${widthCP}%`);
+            //Aparezco el contenido del navbar
+            $(categoriasSidebar).show(200);
+            //Seteo la variable a abierto
+            sidebarAbierto = true;
+        }
+    });
+    /************* Panel de Administración - Sidebar **************/
 });

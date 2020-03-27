@@ -196,7 +196,7 @@ h1.titulo {
     background-color: white;
 }
 
-.spam a {
+.spam a, .copyright a {
     text-decoration: none;
     color: #fff;
     font-size: 20px;

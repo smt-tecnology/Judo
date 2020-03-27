@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
-    <?php include 'templates/head.php' ?>
+    <?php include 'templates/head.php'; ?>
 
     <body id="admin-login">
         <!-- Header -->
@@ -23,7 +23,7 @@
                 <hr class="separador">
 
                 <div class="formulario-logueo text-center">
-                    <form id="formulario-login" action="index.php">
+                    <form id="formulario-login" action="#">
                         <input class="text text-center" id="username" type="text" placeholder="NOMBRE DE USUARIO" required>
                         <input class="pass text-center" id="password" type="text" placeholder="CONTRASEÑA" required>
                         <input class="submit-white" type="submit" value="INGRESAR">
@@ -32,12 +32,8 @@
             </div>
         </section>
         <!-- Footer -->
-        <footer id="footer-login" class="d-flex justify-content-center align-items-center">
-            <div class="text-center spam">
-                <a href="https://smtecnology.store" target="_blank">Diseño Web by <span class="smt">SMT</span></a>
-            </div>
-        </footer>
+        <?php include 'templates/footer.php'; ?>
     </body>
 
-    <?php include 'templates/scripts.php' ?>
+    <?php include 'templates/scripts.php'; ?>
 </html>
