@@ -37,13 +37,13 @@
                 </div>
                 <h2 class="titulo-body">&nbspFecha de Nacimiento</h2>
                 <div class="row fechaNa">
-                    <div class=" col-4 col-lg-2">
+                    <div class=" col-4 col-lg-2 input-fechaNa">
                         <input class="fecha" name="dia" type="text" placeholder="Día">
                     </div>
-                    <div class="col-4 col-lg-2 ">
+                    <div class="col-4 col-lg-2 input-fechaNa">
                         <input class="fecha" name="mes" type="text" placeholder="Mes">
                     </div>
-                    <div class="col-4 col-lg-2 ">
+                    <div class="col-4 col-lg-2 input-fechaNa">
                         <input class="fecha" name="year" type="text" placeholder="Año">
                     </div>
 
@@ -51,10 +51,10 @@
                 <br>
                 <h2 class="titulo-body">&nbspNúmero de Telefono</h2>
                 <div class="row fechaNa">
-                    <div class="col-3 col-lg-2 ">
+                    <div class="col-3 col-lg-2 input-fechaNa">
                         <input class="fecha" name="area" type="text" placeholder="C.Area">
                     </div>
-                    <div class="col-7 col-lg-4">
+                    <div class="col-7 col-lg-4 input-fechaNa">
                         <input class="fecha" name="telefono" type="text" placeholder="Telefono">
                     </div>
                 </div>

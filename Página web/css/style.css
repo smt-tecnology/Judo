@@ -170,6 +170,12 @@ h1.titulo {
 
 /* ------------------ FOOTER ------------------ */
 
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
 .footer {
     background-color: #010B56;
 }
@@ -178,6 +184,7 @@ h1.titulo {
     color: #fff;
     font-size: 20px;
     margin-top: 10px;
+    text-align: center !important;
 }
 
 .panel {
@@ -196,10 +203,20 @@ h1.titulo {
     background-color: white;
 }
 
-.spam a, .copyright a {
+.spam a,
+.copyright a {
     text-decoration: none;
     color: #fff;
     font-size: 20px;
+}
+
+.copyright a {
+    font-weight: 700;
+    transition: all .3s ease;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
 }
 
 .spam {
@@ -315,7 +332,7 @@ h1.titulo {
 /* ------------------  TORNEO ------------------ */
 
 .Torneo {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/3.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/3.png);
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
@@ -346,6 +363,7 @@ h1.titulo {
     display: flex;
     justify-content: center;
     padding: 10px;
+    margin-bottom: 2rem;
 }
 
 .listabotones li {
@@ -409,6 +427,8 @@ h1.titulo {
 
 .categorias-mobile {
     display: none;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
 
@@ -440,7 +460,7 @@ h1.titulo {
 }
 
 .active {
-    color: #fff!important;
+    color: #fff !important;
     background-color: #010B56;
 }
 
@@ -631,6 +651,7 @@ h1.titulo {
     display: flex;
     justify-content: center;
     padding: 0 20px;
+    margin-bottom: 2rem;
 }
 
 .lista-categorias li {
@@ -805,5 +826,26 @@ h1.titulo {
     }
     .videos iframe {
         width: 80%;
+    }
+    .fechaNa {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-fechaNa {
+        margin-top: 3px;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    h1.titulo {
+        margin-right: 5px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
     }
 }
