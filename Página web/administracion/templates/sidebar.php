@@ -8,7 +8,7 @@
         <div class="categorias" style="display:none;">
             <div class="categoria text-center">
                 <h2 class="light-overlay"><i class="fas fa-male"></i>Competidores</h2>
-                <a href="#"><i class="fas fa-plus-circle"></i>Nuevo</a>
+                <a href="crear-competidor.php"><i class="fas fa-plus-circle"></i>Nuevo</a>
                 <br>
                 <a href="#"><i class="fas fa-edit"></i>Administrar</a>
             </div>
@@ -17,7 +17,7 @@
             
             <div class="categoria text-center">
                 <h2 class="light-overlay"><i class="fas fa-trophy"></i>Torneos</h2>
-                <a href="#"><i class="fas fa-plus-circle"></i>Nuevo</a>
+                <a href="crear-torneo.php"><i class="fas fa-plus-circle"></i>Nuevo</a>
                 <br>
                 <a href="#"><i class="fas fa-edit"></i>Administrar</a>
             </div>

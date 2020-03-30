@@ -31,10 +31,101 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--anton);
 }
-input {
+#contenido-principal {
+    margin-top: 2rem;
+}
+.row {
+    margin: 0!important;
+}
+.light-overlay {
+    background-color: rgba(255, 250, 250, 0.6);
+}
+/* Formularios - General */
+input, textarea {
     font-family: var(--anton);
 }
-input.text, input.pass {
+input.with-error + small, textarea.with-error + small {
+    display: none;
+}
+input.with-error:focus + small, textarea.with-error:focus + small {
+    display: block;
+    margin-bottom: 2rem;
+}
+/* Formularios - Number */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* Formularios - File */
+input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+label.file {
+    color: var(--colorBlanco)!important;
+}
+label.file:hover {
+    border: solid .2rem var(--colorAzul);
+    background-color: var(--colorGris);
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+/* Formularios - Radio */
+input[type=radio] {
+    display: none;
+}
+input[type=radio]:checked + label .icono{
+    background: var(--colorAzul);
+    transition: all .3s ease-in;
+}
+.radio-button label .icono {
+    display: inline-block;
+    position: relative;
+    top: .2rem;
+    border: .2rem solid var(--colorGris);
+    border-radius: 10rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: var(--colorBlanco);
+}
+.radio-button label{
+    position: relative;
+}
+.radio-button label:hover {
+    cursor: pointer;
+}
+/* Formularios - Checkbox */
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox]:checked + label .icono{
+    background: var(--colorAzul);
+    transition: all .3s ease-in;
+}
+.checkbox-button label .icono {
+    display: inline-block;
+    position: relative;
+    top: .2rem;
+    border: .2rem solid var(--colorGris);
+    width: 1.8rem;
+    height: 1.8rem;
+    background: var(--colorBlanco);
+}
+.checkbox-button label{
+    position: relative;
+}
+.checkbox-button label:hover {
+    cursor: pointer;
+}
+/* Formularios - Text */
+input.text, input.pass, label.file {
     display: block;
     width: 75%;
     margin: 0 auto;
@@ -43,6 +134,17 @@ input.text, input.pass {
     color: var(--colorBlanco);
     font-size: 20px;
     border: solid 2px var(--colorBlanco);
+    border-radius: 30px;
+}
+input.text-white, input.pass-white, textarea.text-white {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--colorBlanco);
+    color: var(--colorAzul)!important;
+    font-size: 20px;
+    border: solid 2px var(--colorAzul);
     border-radius: 30px;
 }
 input.submit-white {
@@ -56,12 +158,6 @@ input.submit-white {
 input.submit-white:hover {
     background-color: var(--colorGris);
     transition: all .2s ease-in;
-}
-.row {
-    margin: 0!important;
-}
-.light-overlay {
-    background-color: rgba(255, 250, 250, 0.6);
 }
 /************* Elementos y clases globales **************/
 
@@ -100,7 +196,6 @@ input.submit-white:hover {
 #sidebar {
     background-color: var(--colorAzul);
     width: 5%;
-    min-height: 100vh;
     transition: all .5s ease-in;
 }
 #sidebar #boton-sidebar {
@@ -212,3 +307,30 @@ input.submit-white:hover {
     border: solid 2px var(--colorBlanco);
 }
 /************* Login **************/
+
+/************* Panel de Administración - Nuevo Elemento **************/
+#descripcion-nuevo-elemento h1 {
+    color: var(--colorAzul);
+}
+#formulario-creacion input, #formulario-creacion textarea {
+    text-transform: uppercase;
+}
+#formulario-creacion label {
+    color: var(--colorAzul);
+    font-family: var(--anton);
+    font-size: 2rem;
+}
+#formulario-creacion label span {
+    font-size: 1.5rem;
+}
+#formulario-creacion input[type=submit] {
+    width: 50%;
+    padding: 1rem;
+}
+#formulario-creacion input[type=submit]:hover {
+    background-color: var(--colorGris);
+    color: var(--colorAzul);
+    border: solid .2rem var(--colorAzul);
+    transition: all .3s ease-in;
+}
+/************* Panel de Administración - Nuevo Elemento **************/
