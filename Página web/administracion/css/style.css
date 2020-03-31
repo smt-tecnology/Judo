@@ -334,3 +334,38 @@ input.submit-white:hover {
     transition: all .3s ease-in;
 }
 /************* Panel de Administración - Nuevo Elemento **************/
+
+
+/************* Panel de Administración - Administrar Elemento **************/
+#descripcion-administrar-elemento h1 {
+    color: var(--colorAzul);
+}
+#tabla-administrar {
+    font-family: var(--anton);
+    width: 80%;
+    margin: 0 auto 2rem auto;
+}
+#tabla-administrar thead th {
+    border: solid .5rem var(--colorAzul);
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    font-size: 2.6rem;
+    padding: 1rem;
+}
+#tabla-administrar tbody td {
+    border: solid .5rem var(--colorAzul);
+    color: var(--colorAzul);
+}
+#tabla-administrar a {
+    font-size: 2rem;
+}
+@media only screen and (min-width: 480px){
+    #tabla-de-administracion {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+    }
+    #tabla-de-administracion::-webkit-scrollbar { 
+        display: none; /* Chrome Safari */
+    }   
+}
+/************* Panel de Administración - Administrar Elemento **************/

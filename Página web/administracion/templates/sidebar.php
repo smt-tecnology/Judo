@@ -10,7 +10,7 @@
                 <h2 class="light-overlay"><i class="fas fa-male"></i>Competidores</h2>
                 <a href="crear-competidor.php"><i class="fas fa-plus-circle"></i>Nuevo</a>
                 <br>
-                <a href="#"><i class="fas fa-edit"></i>Administrar</a>
+                <a href="administrar-competidores.php"><i class="fas fa-edit"></i>Administrar</a>
             </div>
 
             <br>
@@ -19,7 +19,7 @@
                 <h2 class="light-overlay"><i class="fas fa-trophy"></i>Torneos</h2>
                 <a href="crear-torneo.php"><i class="fas fa-plus-circle"></i>Nuevo</a>
                 <br>
-                <a href="#"><i class="fas fa-edit"></i>Administrar</a>
+                <a href="administrar-torneos.php"><i class="fas fa-edit"></i>Administrar</a>
             </div>
 
             <br>

@@ -297,6 +297,11 @@ $('.datepicker-nacimiento').datepicker({
     title: 'Fecha de Nacimiento',
     endDate: '-10y'
 });
+//Configuración para las tablas de administracion
+$('#tabla-administrar').paginate({
+    'elemsPerPage': 5,
+    'maxButtons': 5,
+});
 /************* Códigos Adicionales/Plugins **************/
 
 
@@ -368,7 +373,7 @@ $(document).ready(function () {
     /************* Panel de Administración - Nuevo Competidor **************/
     //Formulario
     let formularioCrearCompetidor = $('#crear-competidor');
-    if(formularioCrearCompetidor){
+    if(formularioCrearCompetidor.length){
         $('#nombre-competidor').val('');
         $('#apellido-competidor').val('');
         $('#dni-competidor').val('');
