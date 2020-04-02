@@ -2,9 +2,10 @@
 const formulario_cNombre = /^([A-Za-z]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+( ([A-Za-z]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+)*$/;
 const formulario_cNombreTorneo = /^([A-Za-z0-9]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+( ([A-Za-z0-9]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+)*$/;
 const formulario_cNumero = /^([0-9])+$/;
-const formulario_cEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+const formulario_cEmail = /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/;
 const formulario_cTelefono = /^(\(([0-9])+\) )([0-9])+$/;
 const formulario_cReglasTorneo = /^(\*( ([A-Za-z0-9]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+)+)(\n\*( ([A-Za-z0-9]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+)+)*$/;
+const formulario_cHora = /^[0-9][0-9]:[0-9][0-9]$/;
 /************* Expresiones Regulares **************/
 
 
@@ -43,6 +44,42 @@ function actualizarBD(tabla, datos) {
                     location.href = "administrar-torneos.php";
                 }, 5000);  
             }
+            else if(tipoOperacion.respuesta == "torneo_actualizado"){
+                notificacionExito("OPERACIÓN EXITOSA", `¡El torneo ${tipoOperacion.nombre} fue actualizado con éxito!`);
+                setTimeout(() => {
+                    location.href = "administrar-torneos.php";
+                }, 5000);  
+            }
+            else if(tipoOperacion.respuesta == "torneo_eliminado"){
+                notificacionExito("OPERACIÓN EXITOSA", `¡El torneo fue eliminado con éxito!`);
+                setTimeout(() => {
+                    location.href = "administrar-torneos.php";
+                }, 5000);  
+            }
+            else if(tipoOperacion.respuesta == "fecha_añadida"){
+                notificacionExito("OPERACIÓN EXITOSA", `¡La fecha del torneo fue añadida con éxito!`);
+                setTimeout(() => {
+                    location.href = "administrar-torneos.php";
+                }, 5000);  
+            }
+            else if(tipoOperacion.respuesta == "puntos_actualizados"){
+                notificacionExito("OPERACIÓN EXITOSA", `¡Los puntos del competidor se actualizaron con éxito!`);
+                setTimeout(() => {
+                    location.href = "administrar-competidores.php";
+                }, 5000); 
+            }
+            else if(tipoOperacion.respuesta == "competidor_eliminado"){
+                notificacionExito("OPERACIÓN EXITOSA", `¡El competidor fue eliminado con éxito!`);
+                setTimeout(() => {
+                    location.href = "administrar-competidores.php";
+                }, 5000);  
+            }
+            else if(tipoOperacion.respuesta == "competidor_actualizado"){
+                notificacionExito("OPERACIÓN EXITOSA", `¡El competidor ${tipoOperacion.nombre} fue actualizado con éxito!`);
+                setTimeout(() => {
+                    location.href = "administrar-competidores.php";
+                }, 5000);  
+            }
             //Operaciones erroneas
             else if(tipoOperacion.respuesta == "sesion_fallida"){
                 notificacionError("HA OCURRIDO UN ERROR", `El nombre de usuario o la contraseña son incorrectos.`);
@@ -51,10 +88,13 @@ function actualizarBD(tabla, datos) {
                 }, 5000);
             }
             else if(tipoOperacion.respuesta == "competidor_fallido"){
-                notificacionError("HA OCURRIDO UN ERROR", `El competidor no pudo ser creado, esto puede ocurrir en caso de que el DNI o la DIRECCIÓN DE CORREO ya se encuentren asociados a otro competidor.`);
+                notificacionError("HA OCURRIDO UN ERROR", `La operación ha fracasado, esto puede ocurrir en caso de que el DNI o la DIRECCIÓN DE CORREO ya se encuentren asociados a otro competidor.`);
             }
             else if(tipoOperacion.respuesta == "torneo_fallido"){
-                notificacionError("HA OCURRIDO UN ERROR", `El torneo no pudo ser creado, esto puede deberse a que ya existe otro torneo con el mismo NOMBRE`); 
+                notificacionError("HA OCURRIDO UN ERROR", `La operación ha fracasado, esto puede deberse a que ya existe otro torneo con el mismo NOMBRE`); 
+            }
+            else if(tipoOperacion.respuesta == "fecha_fallida"){
+                notificacionError("HA OCURRIDO UN ERROR", `La fecha no pudo ser añadida al sistema`); 
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -78,7 +118,7 @@ function leerFormulario(formulario, accion) {
         actualizarBD('administrador', datos);
     }
     else if(formulario == "competidor"){
-        if(accion == "crear"){
+        if(accion == "crear" || accion == "editar"){
             //Obtengo los valores
             /* Input Text */
             const nombreCompetidor = $('#nombre-competidor');
@@ -111,7 +151,9 @@ function leerFormulario(formulario, accion) {
             /* Nacimiento */
             if(!validarCampo(nacimientoCompetidor, 0, 9999, 'libre')) return false;
             /* Foto */
-            if(!validarFoto(fotoCompetidor)) return false;
+            if(accion == "crear"){
+                if(!validarFoto(fotoCompetidor)) return false;
+            }
             /* Federación */
             if(!validarCampo(federacionCompetidor, 3, 30, formulario_cNombre)) return false;
             /* Club */
@@ -123,6 +165,10 @@ function leerFormulario(formulario, accion) {
 
             //Envio los datos hacia la base de datos
             const datos = new FormData();
+            if(accion == 'editar'){
+                const id = $('#id-competidor').val();
+                datos.append('id', id);
+            }
             datos.append('nombre', nombreCompetidor.val().toUpperCase());
             datos.append('apellido', apellidoCompetidor.val().toUpperCase());
             datos.append('dni', dniCompetidor.val());
@@ -135,12 +181,12 @@ function leerFormulario(formulario, accion) {
             datos.append('club', clubCompetidor.val().toUpperCase());
             datos.append('peso', pesoCompetidor.val().toUpperCase());
             datos.append('categoria', $('#categoria-competidor input:checked').val().toUpperCase());
-            datos.append('accion', 'crear');
+            datos.append('accion', accion);
             actualizarBD('competidor', datos);
         }
     }
     else if(formulario == "torneo"){
-        if(accion == "crear"){
+        if(accion == "crear" || accion == "editar"){
             //Obtengo los valores
             /* Input Text */
             const nombreTorneo = $('#nombre-torneo');
@@ -156,10 +202,14 @@ function leerFormulario(formulario, accion) {
             if(!validarCampo(reglasTorneo, 10, 5000, formulario_cReglasTorneo)) return false;
             //Envio los datos hacia la base de datos
             const datos = new FormData();
+            if(accion == 'editar'){
+                const id = $('#id-torneo').val();
+                datos.append('id', id);
+            }
             datos.append('nombre', nombreTorneo.val().toUpperCase());
             datos.append('categorias', obtenerValorCheckBox(categoriasTorneo));
             datos.append('reglas', reglasTorneo.val().toUpperCase());
-            datos.append('accion', 'crear');
+            datos.append('accion', accion);
             actualizarBD('torneo', datos);
         }
     }
@@ -297,8 +347,20 @@ $('.datepicker-nacimiento').datepicker({
     title: 'Fecha de Nacimiento',
     endDate: '-10y'
 });
+$('.datepicker-fechas').datepicker({
+    title: 'Fecha de Concurrencia',
+    startDate: 'd'
+});
 //Configuración para las tablas de administracion
 $('#tabla-administrar').paginate({
+    'elemsPerPage': 5,
+    'maxButtons': 5,
+});
+$('.tabla-index-1 table').paginate({
+    'elemsPerPage': 5,
+    'maxButtons': 5,
+});
+$('.tabla-index-2 table').paginate({
     'elemsPerPage': 5,
     'maxButtons': 5,
 });
@@ -362,7 +424,7 @@ $(document).ready(function () {
                 $(sidebar).css('width', `${widthSidebar}%`);
                 $(contenidoPrincipal).css('width', `${widthCP}%`);
                 //Aparezco el contenido del navbar
-                $(categoriasSidebar).show();
+                $(categoriasSidebar).show(100);
                 //Seteo la variable a abierto
                 sidebarAbierto = true;
             }
@@ -392,6 +454,65 @@ $(document).ready(function () {
     /************* Panel de Administración - Nuevo Competidor **************/
 
 
+    /************* Panel de Administración - Editar Competidor **************/
+    //Formulario
+    let formularioEditarCompetidor = $('#editar-competidor');
+    if(formularioEditarCompetidor.length){
+        $(formularioEditarCompetidor).on('submit', function () {
+            leerFormulario('competidor', 'editar');
+            return false;
+        });
+    }
+    /************* Panel de Administración - Editar Competidor **************/
+
+
+    /************* Panel de Administración - Eliminar Competidor **************/
+    //Formulario
+    let botonEliminarCompetidor = $('table #eliminar-competidor');
+    if(botonEliminarCompetidor.length){
+        $(botonEliminarCompetidor).on('click', function () {
+            //Obtengo el ID a eliminar
+            const idCompetidor = $(this).attr('data-competidor');
+            //Envío la operación a la base de datos
+            const datos = new FormData();
+            datos.append('id', idCompetidor);
+            datos.append('accion', 'eliminar');
+
+            actualizarBD('competidor', datos);
+            return false;
+        });
+    }
+    /************* Panel de Administración - Eliminar Competidor **************/
+
+
+    /************* Panel de Administración - Sumar Puntos **************/
+    //Formulario
+    let formularioSumarPuntos = $('#modal-puntos #actualizar-puntos-competidor');
+    if(formularioSumarPuntos.length){
+        $(formularioSumarPuntos).on('submit', function () {
+            //Obtengo los campos
+            const idCompetidor = $(this).attr('data-usuario');
+            const puntos_senior = $(this[0]);
+            const puntos_cadete = $(this[1]);
+            const puntos_kyu_graduado = $(this[2]);
+            const puntos_kyu_novicio = $(this[3]);
+            const puntos_infantil_b = $(this[4]);
+            //Realizo la operación en la base de datos
+            const datos = new FormData();
+            datos.append('id', idCompetidor);
+            datos.append('puntos-senior', parseInt(puntos_senior.attr('data-valor-inicial')) + parseInt(puntos_senior.val()));
+            datos.append('puntos-cadete', parseInt(puntos_cadete.attr('data-valor-inicial')) + parseInt(puntos_cadete.val()));
+            datos.append('puntos-kyu-graduado', parseInt(puntos_kyu_graduado.attr('data-valor-inicial')) + parseInt(puntos_kyu_graduado.val()));
+            datos.append('puntos-kyu-novicio', parseInt(puntos_kyu_novicio.attr('data-valor-inicial')) + parseInt(puntos_kyu_novicio.val()));
+            datos.append('puntos-infantil-b', parseInt(puntos_infantil_b.attr('data-valor-inicial')) + parseInt(puntos_infantil_b.val()))
+            datos.append('accion', 'sumar-puntos');
+
+            actualizarBD('competidor', datos);
+        });
+    }
+    /************* Panel de Administración - Sumar Puntos **************/
+
+
     /************* Panel de Administración - Nuevo Torneo **************/
     //Formulario
     let formularioCrearTorneo = $('#crear-torneo');
@@ -405,4 +526,68 @@ $(document).ready(function () {
         });
     }
     /************* Panel de Administración - Nuevo Torneo **************/
+
+
+    /************* Panel de Administración - Editar Torneo **************/
+    //Formulario
+    let formularioEditarTorneo = $('#editar-torneo');
+    if(formularioEditarTorneo.length){
+        $(formularioEditarTorneo).on('submit', function () {
+            leerFormulario('torneo', 'editar');
+            return false;
+        });
+    }
+    /************* Panel de Administración - Editar Torneo **************/
+
+
+    /************* Panel de Administración - Eliminar Torneo **************/
+    //Formulario
+    let botonEliminarTorneo = $('table #eliminar-torneo');
+    if(botonEliminarTorneo.length){
+        $(botonEliminarTorneo).on('click', function () {
+            //Obtengo el ID a eliminar
+            const idTorneo = $(this).attr('data-torneo');
+            //Envío la operación a la base de datos
+            const datos = new FormData();
+            datos.append('id', idTorneo);
+            datos.append('accion', 'eliminar');
+
+            actualizarBD('torneo', datos);
+            return false;
+        });
+    }
+    /************* Panel de Administración - Eliminar Torneo **************/
+
+
+    /************* Panel de Administración - Agregar Fechas **************/
+    //Formulario
+    let formularioNuevaFecha = $('#modal-fecha #añadir-fecha');
+    if(formularioNuevaFecha.length){
+        $(formularioNuevaFecha).on('submit', function () {
+            //Obtengo los campos
+            const idTorneo = $(this).attr('data-torneo');
+            const fecha = $(this[0]);
+            const hora = $(this[1]);
+            const direccion = $(this[2]);
+
+            //Realizo las validaciones correspondientes para los campos (Aquellos que no requieran longitud se establecen en '0' y '9999')
+            /* Fecha */
+            if(!validarCampo(fecha, 0, 9999, 'libre')) return false;
+            /* Hora */
+            if(!validarCampo(hora, 0, 9999, formulario_cHora)) return false;
+            /* Dirección */
+            if(!validarCampo(direccion, 5, 60, 'libre')) return false;
+            
+            //Realizo la operación en la base de datos
+            const datos = new FormData();
+            datos.append('id', idTorneo);
+            datos.append('fecha', fecha.val().toUpperCase());
+            datos.append('hora', hora.val().toUpperCase());
+            datos.append('direccion', direccion.val().toUpperCase());
+            datos.append('accion', 'nueva-fecha');
+
+            actualizarBD('torneo', datos);
+        });
+    }
+    /************* Panel de Administración - Agregar Fechas **************/
 });

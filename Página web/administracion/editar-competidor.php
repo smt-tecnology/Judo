@@ -180,6 +180,7 @@
 
                         <hr>
                         <!-- Enviar formulario -->
+                        <input type="hidden" id="id-competidor" value="<?php echo $idCompetidor; ?>">
                         <input class="text text-center" type="submit" value="EDITAR">
                     </form>
                 </section>

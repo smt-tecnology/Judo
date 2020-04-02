@@ -104,6 +104,7 @@
                         
                         <hr>
                         <!-- Enviar formulario -->
+                        <input type="hidden" id="id-torneo" value="<?php echo $idTorneo; ?>">
                         <input class="text text-center" type="submit" value="EDITAR">
                     </form>
                 </section>
