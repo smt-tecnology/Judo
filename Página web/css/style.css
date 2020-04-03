@@ -1,334 +1,499 @@
-/* GLOBALES */
-
-li {
-    list-style: none;
-}
-
-h2.titulo-body {
-    font-size: 40px;
-    font-family: 'anton';
-    color: #010B56;
-    padding: 20px 0;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
+/************* Elementos y clases globales **************/
 @font-face {
     font-family: "Fun City Level2";
     src: url(../font/FunCityLevel2Stencil.otf);
 }
-
-
-/* ------------------ HEADER ------------------ */
-
-.header {
-    background-color: #010B56;
+:root {
+    /*Colores*/
+    --colorBlanco: #FFFFFF;
+    --colorAzul: #010B56;
+    --colorRojo: #E51B23;
+    --colorGris: #C4C4C4;
+    --colorNegro: #000000;
+    /*Fuentes*/
+    --tradeWinds: 'Trade Winds', cursive;
+    --anton: 'Anton', cursive;
+    --raleway: 'Raleway', sans-serif;
+    --smt: 'Fun City Level2', cursive;
 }
+html {
+    box-sizing: border-box;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--raleway);
+}
+li {
+    list-style: none;
+}
+a.titulo {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--anton);
+}
+h1.titulo {
+    color: var(--colorBlanco);
+    font-family: var(--tradeWinds), cursive;
+    margin-top: 25px;
+}
+h2.titulo-body {
+    font-size: 40px;
+    color: var(--colorAzul);
+    padding: 20px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#contenido-principal {
+    margin-top: 20px;
+}
+.row {
+    margin: 0!important;
+}
+.carousel-caption {
+    right: 0!important;
+    left: 0!important;
+    width: 100%!important;
+}
+.carousel-caption h3 {
+    padding: 20px!important;
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.light-overlay {
+    background-color: rgba(255, 250, 250, 0.6);
+}
+/* Formularios - General */
+input, textarea {
+    font-family: var(--anton);
+}
+input.with-error + small, textarea.with-error + small {
+    display: none;
+}
+input.with-error:focus + small, textarea.with-error:focus + small {
+    display: block;
+    margin-bottom: 20px;
+}
+/* Formularios - Number */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* Formularios - File */
+input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+label.file {
+    color: var(--colorBlanco)!important;
+}
+label.file:hover {
+    border: solid 2px var(--colorAzul);
+    background-color: var(--colorGris);
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+/* Formularios - Radio */
+input[type=radio] {
+    display: none;
+}
+input[type=radio]:checked + label .icono{
+    background: var(--colorAzul);
+    transition: all .3s ease-in;
+}
+.radio-button label .icono {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    border: 2px solid var(--colorGris);
+    border-radius: 100px;
+    width: 18px;
+    height: 18px;
+    background: var(--colorBlanco);
+}
+.radio-button label{
+    position: relative;
+}
+.radio-button label:hover {
+    cursor: pointer;
+}
+/* Formularios - Checkbox */
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox]:checked + label .icono{
+    background: var(--colorAzul);
+    transition: all .3s ease-in;
+}
+.checkbox-button label .icono {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    border: 2px solid var(--colorGris);
+    width: 18px;
+    height: 18px;
+    background: var(--colorBlanco);
+}
+.checkbox-button label{
+    position: relative;
+}
+.checkbox-button label:hover {
+    cursor: pointer;
+}
+/* Formularios - Text */
+input.text, input.pass, label.file {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    font-size: 20px;
+    border: solid 2px var(--colorBlanco);
+    border-radius: 30px;
+}
+input.text-white, input.pass-white, textarea.text-white {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--colorBlanco);
+    color: var(--colorAzul)!important;
+    font-size: 20px;
+    border: solid 2px var(--colorAzul);
+    border-radius: 30px;
+}
+input.submit-white {
+    background-color: var(--colorBlanco);
+    color: var(--colorAzul);
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+input.submit-white:hover {
+    background-color: var(--colorGris);
+    transition: all .2s ease-in;
+}
+@media (max-width: 768px) {
+    h1.titulo {
+        font-size: 32px;
+        text-align: center;
+    }
+}
+/************* Elementos y clases globales **************/
 
+
+/************* Header **************/
+.header {
+    background-color: var(--colorAzul);
+}
 .logo {
     width: 100%;
     max-width: 130px;
 }
-
 .header .row {
     padding: 5px;
 }
-
-
-/* titulo */
-
-.federaciones {
-    margin: 30px 0;
-}
-
-a.titulo {
-    text-decoration: none;
-}
-
-h1.titulo {
-    color: #fff;
-    font-family: 'Trade Winds', cursive;
-    margin-top: 25px;
-}
-
 .navmobile {
     display: none;
 }
-
-
-/* nav */
-
 .listanav {
     display: flex;
     list-style: none;
 }
-
 .itemnav {
     padding: 0 20px;
 }
-
 .itemnav a {
-    color: #fff;
-    font-family: Raleway;
+    color: var(--colorBlanco);
+    font-family: var(--raleway);
     font-weight: 700;
     text-decoration: none;
 }
-
 .itemnav a:hover {
-    color: grey;
+    color: var(--colorGris);
     transition: .3s all ease-out;
 }
-
-
-/* ------------------ FIN HEADER ------------------ */
-
-
-/* ------------------ FEDERACIONES ------------------ */
-
-.federacion img {
-    width: 60%;
+.menuicono i:hover {
+    color: var(--colorGris);
+    cursor: pointer;
+    transition: all .3s ease-in;
 }
-
-.federacion p {
-    font-family: Raleway;
+@media only screen and (max-width: 768px) {
+    .logo {
+        margin: 10px;
+    }
+    .navmobile {
+        text-align: center;
+        display: block;
+        padding: 10px;
+    }
+    .listanav {
+        display: none;
+    }
+    .open {
+        display: block;
+    }
+    .opening {
+        display: none;
+    }
+    .open li {
+        padding: 10px 0;
+        font-size: 25px;
+    }
+    .menu {
+        color: white;
+        font-size: 50px;
+    }
+    .itemnav a {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    
+    .categorias-desktop {
+        display: none;
+    }
+    .categorias-mobile {
+        display: block;
+    }
+    .categorias-mobile .botonCategoria {
+        margin: 10px 0;
+    }
+    .botonCategoria {
+        padding: 5px;
+    }
+    .botonCategoria a {
+        font-size: 20px;
+        padding: 10px;
+    }
+    .puntaje-mobile {
+        display: block;
+    }
+    .puntaje-desktop {
+        display: none;
+    }
+    .tablas-desktop {
+        display: none;
+    }
+    .tablas-mobile {
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        grid-template-rows: repeat(2, 150px);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    .tabla1 {
+        grid-area: 1 / 1 / 2 / 12;
+    }
+    .tabla2 {
+        grid-area: 2 / 1 / 3 / 12;
+    }
+    .ranking-header {
+        padding: 20px 0px;
+        font-size: 15px;
+    }
+    .competidor {
+        font-size: 14px;
+    }
+    .puntajes {
+        padding: 8px;
+    }
+    .femenino {
+        padding: 12px;
+    }
+    .espacio {
+        margin-top: 650px;
+    }
+    .lista-generos li input {
+        margin-left: 32px;
+        font-size: 10px;
+    }
+    .lista-categorias li {
+        font-size: 15px;
+    }
+    .lista-categorias li {
+        padding: 0;
+        margin: 1px;
+    }
 }
+/************* Header **************/
 
 
-/* ------------------ FIN FEDERACIONES ------------------ */
-
-
-/* ------------------  GALERIA ------------------ */
-
-.galeria {
-    margin-top: 40px;
-    margin-bottom: -20px;
-}
-
-.imagen-galeria img {
-    width: 100%;
-    position: relative;
-}
-
-.imagen-galeria {
-    background-color: black;
-    text-align: center;
-}
-
-.club-galeria {
-    font-family: 'Oswald';
-}
-
-.titulo-imagen {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.videos iframe {
-    width: 90%;
-}
-
-
-/* ------------------ FIN GALERIA ------------------ */
-
-
-/* ------------------ INSCRIPCIONES ------------------ */
-
-.inscripciones-parrafo {
-    font-size: 30px;
-    font-family: Raleway;
-}
-
-.boton-inscripcion {
-    margin-top: 50px;
-}
-
-.boton-inscripcion a {
-    color: #010B56;
-    text-decoration: none;
-    padding: 15px 25px;
-    font-size: 30px;
-    font-family: Raleway;
-    border: 4px solid #010B56;
-    border-radius: 360px;
-}
-
-.boton-inscripcion a:hover {
-    color: #fff;
-    background-color: #010B56;
-    transition: .3s all ease-in;
-}
-
-.subir:hover {
-    background-color: rgba(1, 11, 86, .8);
-    transition: .3s all ease-in;
-}
-
-
-/* ------------------ FIN INSCRIPCIONES ------------------ */
-
-
-/* ------------------ FOOTER ------------------ */
-
+/************* Footer **************/
 .container-footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
-
 .footer {
-    background-color: #010B56;
+    background-color: var(--colorAzul);
 }
-
 .texto-footer {
-    color: #fff;
+    color: var(--colorBlanco);
     font-size: 20px;
     margin-top: 10px;
     text-align: center !important;
 }
-
 .panel {
     text-align: right;
 }
-
 .panel:hover {
     cursor: pointer;
 }
-
 .linea-footer {
-    color: white;
+    color: var(--colorBlanco);
+    background-color: var(--colorBlanco);
 }
-
-.linea-footer {
-    background-color: white;
-}
-
-.spam a,
-.copyright a {
+.spam a, .copyright a {
     text-decoration: none;
-    color: #fff;
+    color: var(--colorBlanco);
     font-size: 20px;
 }
-
 .copyright a {
-    font-weight: 700;
-    transition: all .3s ease;
+    font-weight: 400;
 }
-
-.copyright a:hover {
-    text-decoration: underline;
-}
-
 .spam {
     padding: 20px;
 }
-
 .smt {
-    font-family: 'Fun City Level2';
-    color: red;
+    font-family: var(--smt);
+    color: var(--colorRojo);
 }
+@media only screen and (max-width: 992px){
+    .texto-footer {
+        font-size: 17px;
+    }
+}
+/************* Footer **************/
 
 
-/* ------------------ FIN FOOTER ------------------ */
-
-
-/* ------------------  CALENDARIO ------------------ */
-
-.calendariotablaDesktop {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    justify-content: center;
+/************* Index **************/
+/* Federaciones */
+.federaciones {
+    margin: 30px 0;
+}
+.federacion img {
+    width: 60%;
+}
+.federacion p {
+    font-family: var(--raleway);
+}
+/* Galería */
+.galeria {
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+.imagen-galeria img {
+    width: 100%;
+    position: relative;
+}
+.imagen-galeria {
+    background-color: var(--colorNegro);
     text-align: center;
-    margin-top: -24px;
 }
-
-.torneo1 {
-    grid-area: 1 / 1 / 4 / 2;
+.club-galeria {
+    font-family: var(--raleway);
 }
-
-.torneo2 {
-    grid-area: 1 / 2 / 4 / 3;
+.titulo-imagen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
-
-.torneo3 {
-    grid-area: 1 / 3 / 4 / 4;
+.videos iframe {
+    width: 90%;
 }
-
-.calendariotablamobile {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    justify-content: center;
+/* Inscripciones */
+.inscripciones-parrafo {
     text-align: center;
-    display: none;
+    font-size: 20px;
+    font-family: var(--raleway);
 }
-
-.tablaCalendarioMobile {
-    display: none;
+.boton-inscripcion {
+    margin-top: 50px;
 }
-
-.torneo1mobile {
-    grid-area: 1 / 1 / 2 / 2;
+.boton-inscripcion a {
+    color: var(--colorAzul);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: var(--raleway);
+    border: 4px solid var(--colorAzul);
+    border-radius: 360px;
 }
-
-.torneo2mobile {
-    grid-area: 2 / 1 / 3 / 2;
+.boton-inscripcion a:hover {
+    color: var(--colorBlanco);
+    background-color: var(--colorAzul);
+    transition: .3s all ease-in;
 }
-
-.torneo3mobile {
-    grid-area: 3 / 1 / 4 / 2;
+/* Responsive */
+@media only screen and (max-width: 768px){
+    .inscripciones-parrafo {
+        text-align: center;
+    }
 }
-
-.mes-calendario {
-    background-color: #010B56;
+@media only screen and (max-width: 576px){
+    h3.club-galeria {
+        font-size: 25px;
+    }
+    .carousel-control-next span {
+        margin-right: 25px;
+    }
+    .carousel-control-prev .prev {
+        margin-left: 25px;
+    }
+    .videos iframe {
+        width: 80%;
+    }
 }
+/************* Index **************/
 
-.mes-calendario h2 {
-    color: #fff;
-    font-family: Raleway;
+
+/************* Calendario **************/
+.fechas-torneos {
+    margin-bottom: 70px;
+}
+.torneo-calendario {
+    background-color: var(--colorAzul);
+}
+.torneo-calendario h2 {
+    color: var(--colorBlanco);
+    font-family: var(--raleway);
     font-weight: 700;
     text-align: center;
     padding: 5px;
+    margin: 0;
 }
-
-.torneo {
-    font-weight: 700;
-    margin-top: 15px;
-}
-
 .card {
-    color: #010B56;
-    font-family: Raleway;
+    color: var(--colorAzul);
+    font-family: var(--raleway);
     font-weight: 700;
     text-align: center;
-    margin: -5px 10px 10px;
-    -webkit-box-shadow: -1px 1px 14px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 1px 14px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: -1px 1px 15px 1px rgba(0, 0, 0, 0.75);
 }
+.info i {
+    font-size: 30px;
+}
+.info {
+    padding: 15px;
+}
+/************* Calendario **************/
 
 .columnas {
     justify-content: center;
     width: 100%;
 }
-
-.info i {
-    font-size: 30px;
-}
-
-.info {
-    padding: 15px;
-}
-
-
-/* ------------------ FIN CALENDARIO ------------------ */
-
-
 /* ------------------  TORNEO ------------------ */
 
 .Torneo {
@@ -645,7 +810,10 @@ h1.titulo {
     color: #fff;
 }
 
-.subir:hover {}
+.subir:hover {
+    background-color: rgba(1, 11, 86, .8);
+    transition: .3s all ease-in;
+}
 
 .lista-categorias {
     display: flex;
@@ -677,9 +845,6 @@ h1.titulo {
     .itemnav {
         padding: 0 10px;
     }
-    .texto-footer {
-        font-size: 17px;
-    }
     .ranking-header {
         padding: 20px 20px;
         font-size: 15px;
@@ -693,118 +858,6 @@ h1.titulo {
     .categorias-mobile {
         display: block;
     }
-    .calendariotablamobile {
-        display: block;
-    }
-    .calendariotablaDesktop {
-        display: none;
-    }
-    .tablaCalendariodesktop {
-        display: none;
-    }
-    .tablaCalendarioMobile {
-        display: block;
-    }
-}
-
-@media (max-width: 768px) {
-    h1.titulo {
-        font-size: 32px;
-        text-align: center;
-    }
-    .logo {
-        margin: 10px;
-    }
-    .navmobile {
-        text-align: center;
-        display: block;
-        padding: 10px;
-    }
-    .listanav {
-        display: none;
-    }
-    .open {
-        display: block;
-    }
-    .opening {
-        display: none;
-    }
-    .open li {
-        padding: 10px 0;
-        font-size: 25px;
-    }
-    .menu {
-        color: white;
-        font-size: 50px;
-    }
-    .inscripciones-parrafo {
-        text-align: center;
-    }
-    .categorias-desktop {
-        display: none;
-    }
-    .categorias-mobile {
-        display: block;
-    }
-    .categorias-mobile .botonCategoria {
-        margin: 10px 0;
-    }
-    .botonCategoria {
-        padding: 5px;
-    }
-    .botonCategoria a {
-        font-size: 20px;
-        padding: 10px;
-    }
-    .puntaje-mobile {
-        display: block;
-    }
-    .puntaje-desktop {
-        display: none;
-    }
-    .tablas-desktop {
-        display: none;
-    }
-    .tablas-mobile {
-        display: grid;
-        grid-template-columns: repeat(11, 1fr);
-        grid-template-rows: repeat(2, 150px);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    .tabla1 {
-        grid-area: 1 / 1 / 2 / 12;
-    }
-    .tabla2 {
-        grid-area: 2 / 1 / 3 / 12;
-    }
-    .ranking-header {
-        padding: 20px 0px;
-        font-size: 15px;
-    }
-    .competidor {
-        font-size: 14px;
-    }
-    .puntajes {
-        padding: 8px;
-    }
-    .femenino {
-        padding: 12px;
-    }
-    .espacio {
-        margin-top: 650px;
-    }
-    .lista-generos li input {
-        margin-left: 32px;
-        font-size: 10px;
-    }
-    .lista-categorias li {
-        font-size: 15px;
-    }
-    .lista-categorias li {
-        padding: 0;
-        margin: 1px;
-    }
 }
 
 @media (max-width: 576px) {
@@ -813,18 +866,6 @@ h1.titulo {
         text-align: center;
     }
     .logo {
-        width: 80%;
-    }
-    h3.club-galeria {
-        font-size: 25px;
-    }
-    .carousel-control-next span {
-        margin-right: 25px;
-    }
-    .carousel-control-prev .prev {
-        margin-left: 25px;
-    }
-    .videos iframe {
         width: 80%;
     }
     .fechaNa {
