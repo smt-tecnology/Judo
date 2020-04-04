@@ -6,6 +6,13 @@
     <title>Administración - Torneo Interfederativo de Judo</title>
     <!-- Opciones de Posicionamiento -->
     <meta name="robots" content="noindex">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="../img/Favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- Plugins -->
     <link rel="stylesheet" href="../css/plugins/normalize.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">

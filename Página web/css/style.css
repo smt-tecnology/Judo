@@ -68,6 +68,48 @@ h2.titulo-body {
 .light-overlay {
     background-color: rgba(255, 250, 250, 0.6);
 }
+/* Tablas */
+table {
+    font-family: var(--anton);
+    width: 100%;
+    margin: 0 auto 20px auto;
+}
+table img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+}
+table thead th {
+    border: solid 5px var(--colorAzul);
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    font-size: 26px;
+    padding: 10px;
+}
+table thead input {
+    border: none;
+    border-radius: 100px;
+    background-color: var(--colorBlanco);
+    height: 25px;
+    font-family: var(--anton);
+    color: var(--colorAzul);
+    text-align: center;
+}
+table tbody td {
+    border: solid 5px var(--colorAzul);
+    color: var(--colorAzul);
+    padding: 5px;
+    cursor: pointer;
+}
+table tbody td:hover {
+    color: var(--colorBlanco);
+    background-color: var(--colorAzul);
+    transition: all .3s ease-in;
+}
+table tbody td.active {
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+}
 /* Formularios - General */
 input, textarea {
     font-family: var(--anton);
@@ -262,72 +304,6 @@ input.submit-white:hover {
         font-size: 20px;
         font-weight: 400;
     }
-    
-    .categorias-desktop {
-        display: none;
-    }
-    .categorias-mobile {
-        display: block;
-    }
-    .categorias-mobile .botonCategoria {
-        margin: 10px 0;
-    }
-    .botonCategoria {
-        padding: 5px;
-    }
-    .botonCategoria a {
-        font-size: 20px;
-        padding: 10px;
-    }
-    .puntaje-mobile {
-        display: block;
-    }
-    .puntaje-desktop {
-        display: none;
-    }
-    .tablas-desktop {
-        display: none;
-    }
-    .tablas-mobile {
-        display: grid;
-        grid-template-columns: repeat(11, 1fr);
-        grid-template-rows: repeat(2, 150px);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    .tabla1 {
-        grid-area: 1 / 1 / 2 / 12;
-    }
-    .tabla2 {
-        grid-area: 2 / 1 / 3 / 12;
-    }
-    .ranking-header {
-        padding: 20px 0px;
-        font-size: 15px;
-    }
-    .competidor {
-        font-size: 14px;
-    }
-    .puntajes {
-        padding: 8px;
-    }
-    .femenino {
-        padding: 12px;
-    }
-    .espacio {
-        margin-top: 650px;
-    }
-    .lista-generos li input {
-        margin-left: 32px;
-        font-size: 10px;
-    }
-    .lista-categorias li {
-        font-size: 15px;
-    }
-    .lista-categorias li {
-        padding: 0;
-        margin: 1px;
-    }
 }
 /************* Header **************/
 
@@ -488,356 +464,146 @@ input.submit-white:hover {
 .info {
     padding: 15px;
 }
+@media only screen and (max-width: 330px){
+    .torneo-calendario h2 {
+        word-break: break-all;
+    }
+}
 /************* Calendario **************/
 
-.columnas {
-    justify-content: center;
-    width: 100%;
-}
-/* ------------------  TORNEO ------------------ */
 
-.Torneo {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/3.png);
+/************* Torneos **************/
+.Torneos {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/3.png);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     text-align: center;
-    height: 360px;
     padding: 10px;
 }
-
-.Torneo h3 {
-    color: #fff;
-    font-family: Raleway;
+.Torneos h3 {
+    color: var(--colorBlanco);
+    font-family: var(--tradeWinds);
     font-weight: 700;
     margin: 55px;
 }
-
-.Torneo h5 {
-    color: #FFF;
-    font-family: Raleway;
-    font-weight: 700;
+.Torneos h5 {
+    color: var(--colorBlanco);
+    font-family: var(--anton);
+    font-size: 20px;
+    font-weight: 500;
 }
-
-.Torneo p {
-    color: #FFF;
-    font-family: Raleway;
-    font-weight: 700;
+.Torneos p {
+    color: var(--colorBlanco);
+    font-family: var(--raleway);
+    font-weight: 300;
 }
-
 .listabotones {
     display: flex;
     justify-content: center;
     padding: 10px;
     margin-bottom: 2rem;
 }
-
 .listabotones li {
     padding: 10px;
-    border: 4px solid #fff;
+    border: 2px solid var(--colorBlanco);
     border-radius: 360px;
     padding: 10px;
     margin: 10px;
 }
-
 .listabotones li a {
     font-size: 20px;
-    font-family: Raleway;
+    font-family: var(--raleway);
     font-weight: 700;
     text-decoration: none;
-    color: #fff;
+    color: var(--colorBlanco);
 }
-
 .listabotones li:hover {
-    background-color: rgba(255, 255, 255, 0.253);
+    background-color: var(--colorGris);
     transition: .3s all ease-in;
 }
-
-
-/* ------------------ FIN TORNEO ------------------ */
-
-
-/* ------------------ RANKING -------------------------- */
-
-
-/* CATEGORIAS */
-
-.categorias-desktop {
-    display: grid;
-    grid-template-columns: repeat(5, 180px);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    justify-content: center;
+@media only screen and (max-width: 360px){
+    .Torneos h3 {
+        text-align: left;
+        font-size: 25px;
+        word-break: break-all;
+    }
+    .listabotones {
+        display: block;
+    }
+    .listabotones li {
+        padding: 0;
+    }
+    .listabotones li a {
+        font-size: 15px;
+    }
 }
+/************* Torneos **************/
 
-.div1 {
-    grid-area: 1 / 1 / 2 / 2;
+
+/************* Inscripciones **************/
+#formulario-inscripcion h3 {
+    font-size: 20px;
 }
-
-.div2 {
-    grid-area: 1 / 2 / 2 / 3;
+#formulario-inscripcion input, #formulario-inscripcion textarea {
+    text-transform: uppercase;
 }
-
-.div3 {
-    grid-area: 1 / 3 / 2 / 4;
+#formulario-inscripcion label {
+    color: var(--colorAzul);
+    font-family: var(--anton);
+    font-size: 20px;
 }
-
-.div4 {
-    grid-area: 1 / 4 / 2 / 5;
+#formulario-inscripcion label span {
+    font-size: 15px;
 }
-
-.div5 {
-    grid-area: 1 / 5 / 2 / 6;
+#formulario-inscripcion input[type=submit] {
+    width: 50%;
+    padding: 10px;
 }
-
-.categorias-mobile {
-    display: none;
-    margin-right: 30px;
-    margin-left: 30px;
+#formulario-inscripcion input[type=submit]:hover {
+    background-color: var(--colorGris);
+    color: var(--colorAzul);
+    border: solid 2px var(--colorAzul);
+    transition: all .3s ease-in;
 }
+/************* Inscripciones **************/
 
 
-/* fin categorias */
-
+/************* Ranking **************/
+/* Categorías */
+a.active {
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+}
 .botonCategoria {
-    border: 4px solid #010B56;
+    border: 4px solid var(--colorAzul);
     border-radius: 360px;
     padding: 5px;
-}
-
-.botonCategoria {
-    color: #010B56;
+    color: var(--colorAzul);
     text-decoration: none;
     font-size: 20px;
-    font-family: 'anton';
-    margin: 0 10px;
+    font-family: var(--anton);
+    margin: 1px auto;
 }
-
 .botonCategoria:hover {
-    background-color: #010B56;
+    background-color: var(--colorAzul);
     transition: .3s all ease-in;
-    color: #fff;
+    color: var(--colorBlanco);
     cursor: pointer;
-}
-
-.botonCategoria a:hover {
-    color: #fff;
-}
-
-.active {
-    color: #fff !important;
-    background-color: #010B56;
-}
-
-.puntaje-mobile {
-    display: none;
-}
-
-
-/* TABLA RANKING */
-
-.tablas-desktop {
-    display: grid;
-    grid-template-columns: repeat(4, 80px);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-}
-
-.tabla1 {
-    grid-area: 1 / 1 / 2 / 3;
-}
-
-.tabla2 {
-    grid-area: 1 / 3 / 2 / 5;
-}
-
-
-/* TABLA PESOS */
-
-.masculino,
-.femenino {
-    background-color: #010B56;
-    border: #010B56 3px solid;
-    color: #fff;
-    padding: 12px;
-    font-size: 20px;
-    font-family: 'anton';
-    text-align: center;
-}
-
-.femenino {
-    padding: 0 17px;
-}
-
-.puntajes {
-    color: #010B56;
-    font-family: 'anton';
-    border: #010B56 3px solid;
-    text-align: center;
-    color: #010B56;
-}
-
-.puntajes:hover {
-    cursor: pointer;
-    background-color: #010B56;
-    color: #fff;
-    transition: .3s all ease-in;
-}
-
-.ranking-header {
-    background-color: #010B56;
-    color: #fff;
-    padding: 20px 50px;
-    border: #010B56 3px solid;
-    font-family: 'Anton';
-    font-weight: normal;
-}
-
-.competidor {
-    padding: 10px;
-    color: #010B56;
-    font-family: 'anton';
-    border: #010B56 3px solid;
-}
-
-.competidor-imagen {
-    text-align: left;
-}
-
-.paginacion {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.paginacion a {
-    background: #010B56;
-    border-radius: 360px;
-    padding: 5px 15px;
-    color: #fff;
-    font-family: 'anton';
-}
-
-
-/* ------------------ FIN RANKING -------------------------- */
-
-
-/* ------------------ INFORMACION -------------------------- */
-
-.informacion {
-    color: black;
-    font-family: 'anton';
-    text-align: center;
-    font-size: 25px;
-}
-
-.name {
-    margin: 10px auto
-}
-
-.formulario {
-    border: #010B56 3px solid;
-    border-radius: 360px;
-    width: 100%;
-    padding: 8px;
-    text-align: center;
-    font-family: 'anton';
-    color: #000;
-    font-size: 20px;
-}
-
-.formulario:focus {
-    outline: none;
-}
-
-.formulario::placeholder,
-.fecha::placeholder {
-    color: #010B56;
-    font-family: 'anton';
-    font-size: 20px;
-    text-align: center;
-    margin-top: 200px;
-}
-
-.lista-generos {
-    display: flex;
-    justify-content: center;
-    padding: 0 20px;
-}
-
-.lista-generos li {
-    padding: 0 30px;
-    font-family: 'anton';
-    color: #010B56;
-    margin: 13px;
-    font-size: 20px;
-}
-
-.lista-generos li input {
-    margin: 10px;
-    border-color: #010B56;
-}
-
-.fecha {
-    border: #010B56 3px solid;
-    border-radius: 360px;
-    width: 100%;
-    padding: 1px;
-    text-align: center;
-    font-family: 'anton';
-    color: #000;
-    font-size: 20px;
-    margin: 0 auto;
-}
-
-.fechaNa {
-    justify-content: center;
-}
-
-.subir {
-    border: #010B56 3px solid;
-    border-radius: 360px;
-    width: 100%;
-    padding: 8px;
-    text-align: center;
-    font-family: 'anton';
-    font-size: 20px;
-    background-color: #010B56;
-}
-
-.subir a {
     text-decoration: none;
-    color: #fff;
 }
-
-.subir:hover {
-    background-color: rgba(1, 11, 86, .8);
-    transition: .3s all ease-in;
+/* Tablas */
+#tablas-ranking {
+    margin: 0 auto!important;
 }
-
-.lista-categorias {
-    display: flex;
-    justify-content: center;
-    padding: 0 20px;
-    margin-bottom: 2rem;
+@media only screen and (max-width: 770px){
+    .tabla-competidores {
+        overflow: scroll;
+    }
 }
-
-.lista-categorias li {
-    padding: 0 30px;
-    font-family: 'anton';
-    color: #010B56;
-    margin: 13px;
-    font-size: 20px;
-}
-
-.lista-categorias li input {
-    margin: 10px;
-    border-color: #010B56;
-}
-
+/************* Ranking **************/
 
 /* MEDIA */
-
 @media (max-width: 992px) {
     h1.titulo {
         font-size: 32px;
@@ -852,12 +618,6 @@ input.submit-white:hover {
     .competidor {
         font-size: 14px;
     }
-    .categorias-desktop {
-        display: none;
-    }
-    .categorias-mobile {
-        display: block;
-    }
 }
 
 @media (max-width: 576px) {
@@ -867,16 +627,6 @@ input.submit-white:hover {
     }
     .logo {
         width: 80%;
-    }
-    .fechaNa {
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-    }
-    .input-fechaNa {
-        margin-top: 3px;
-        width: 100%;
-        max-width: 100%;
     }
 }
 
