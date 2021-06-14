@@ -73,7 +73,7 @@
                 <div id="modal-fechas-<?php echo $torneo['id']; ?>" class="modal-nueva-fecha modal fade bd-example-modal-lg" data-torneo="<?php echo $torneo['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="Fechas" aria-hidden="true">
                     <!-- Cargo los puntajes del usuario -->
                     <?php 
-                        $cargarFechas = " SELECT * FROM `fechas-torneo` WHERE torneo = $idTorneo ";
+                        $cargarFechas = " SELECT * FROM `fechas-torneo` WHERE torneo = $idTorneo ORDER BY fecha, hora ";
                         $resultadoBD = $con->query($cargarFechas);
                         
                         $fechasTorneo = array();
@@ -116,7 +116,7 @@
                                             <hr>
 
                                             <p>
-                                                <?php echo $fecha['fecha']; ?> --> <?php echo $fecha['hora']; ?> hrs.
+                                                <?php echo date('d/m/Y', strtotime($fecha['fecha'])); ?> --> <?php echo $fecha['hora']; ?> hrs.
                                             </p>
 
                                             <hr>

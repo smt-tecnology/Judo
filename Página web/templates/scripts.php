@@ -1,5 +1,5 @@
 <!-- JQUERY -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!-- BOOSTRAP -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!-- FONTAWESOME -->
@@ -13,6 +13,7 @@
 <!-- TABLE SORTER -->
 <script src="js/plugins/jquery.tablesorter.min.js"></script>
 <script src="js/plugins/jquery.tablesorter.widgets.min.js"></script>
-<script src="js/plugins/jquery.tablesorter.pager.min.js"></script>
 <!-- MAIN -->
 <script src="js/main.js"></script>
+<!--LIGHTBOX-->
+<script src="js/lightbox.js"></script>

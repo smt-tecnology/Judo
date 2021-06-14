@@ -137,6 +137,7 @@
     else if($accion == "sumar-puntos"){
         //Paso los datos ingresados por el usuario por un filtro para evitar codigo malo
         $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+        $torneo = filter_var($_POST['torneo'], FILTER_SANITIZE_NUMBER_INT);
         $puntosSenior = filter_var($_POST['puntos-senior'], FILTER_SANITIZE_NUMBER_INT);
         $puntosCadete = filter_var($_POST['puntos-cadete'], FILTER_SANITIZE_NUMBER_INT);
         $puntosKyuGraduado = filter_var($_POST['puntos-kyu-graduado'], FILTER_SANITIZE_NUMBER_INT);
@@ -144,18 +145,36 @@
         $puntosInfantilB = filter_var($_POST['puntos-infantil-b'], FILTER_SANITIZE_NUMBER_INT);
         //Intento hacer la operación en la base de datos
         try {
-            $stmt = $con->prepare('DELETE FROM `puntos-competidor` WHERE usuario = ?');
-            $stmt->bind_param('i', $id);
-            $stmt->execute();
+            $cargarExistente = " SELECT * FROM `puntos-competidor` WHERE torneo = $torneo AND usuario = $id ";
+            $resultadoBD = $con->query($cargarExistente);
+            $informacionUsuario = $resultadoBD->fetch_assoc();
 
-            $stmt = $con->prepare('INSERT INTO `puntos-competidor` (usuario, puntos_senior, puntos_cadete, puntos_kyu_graduado, puntos_kyu_novicio, puntos_infantil_b) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->bind_param('iiiiii', $id, $puntosSenior, $puntosCadete, $puntosKyuGraduado, $puntosKyuNovicio, $puntosInfantilB);
-            $stmt->execute();
-            
+            if(count($informacionUsuario) > 0){
+                $puntosSenior = $puntosSenior + $informacionUsuario['puntos_senior'];
+                $puntosCadete = $puntosCadete + $informacionUsuario['puntos_cadete'];
+                $puntosKyuGraduado = $puntosKyuGraduado + $informacionUsuario['puntos_kyu_graduado'];
+                $puntosKyuNovicio = $puntosKyuNovicio + $informacionUsuario['puntos_kyu_novicio'];
+                $puntosInfantilB = $puntosInfantilB + $informacionUsuario['puntos_infantil_b'];
+
+                $stmt = $con->prepare(" UPDATE `puntos-competidor` SET puntos_senior = ?, puntos_cadete = ?, puntos_kyu_graduado = ?, puntos_kyu_novicio = ?, puntos_infantil_b = ? WHERE torneo = $torneo AND usuario = $id ");
+                $stmt->bind_param('iiiii', $puntosSenior, $puntosCadete, $puntosKyuGraduado, $puntosKyuNovicio, $puntosInfantilB);
+                $stmt->execute();
+            }
+            else{
+                $stmt = $con->prepare('INSERT INTO `puntos-competidor` (torneo, usuario, puntos_senior, puntos_cadete, puntos_kyu_graduado, puntos_kyu_novicio, puntos_infantil_b) VALUES (?, ?, ?, ?, ?, ?, ?)');
+                $stmt->bind_param('iiiiiii', $torneo, $id, $puntosSenior, $puntosCadete, $puntosKyuGraduado, $puntosKyuNovicio, $puntosInfantilB);
+                $stmt->execute();
+            }
+
             if($stmt->affected_rows > 0){
                 $respuesta = array(
                     'respuesta' => 'puntos_actualizados',
                 );
+            }
+            else{
+                $respuesta = array(
+                    'respuesta' => 'puntos_fallidos',
+                ); 
             }
             
             $stmt->close();

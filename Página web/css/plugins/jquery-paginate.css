@@ -39,12 +39,12 @@
     line-height: 20px;
     padding: 4px 12px;
     background-color: #FFFFFF;
-    color: #010B56;
+    color: #560101;
     font-size : 16px;
     min-width: 16px;
     float: left;
 
-    border: .1rem solid #010B56;
+    border: .1rem solid #560101;
     border-radius: 10rem;
     margin: 0 .2rem;
 
@@ -99,9 +99,9 @@
 .paginateContainer .paginateActive .paginateAnchor:hover {
     color : #fff;
     cursor: default;
-    background-color: #010B56;
-    border-top: 1px solid #010B56;
-    border-bottom: 1px solid #010B56;
+    background-color: #560101;
+    border-top: 1px solid #560101;
+    border-bottom: 1px solid #560101;
 }
 
 .paginateContainer .paginateDisabled .paginateAnchor,

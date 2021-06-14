@@ -1,12 +1,14 @@
 /************* Elementos y clases globales **************/
+
 @font-face {
     font-family: "Fun City Level2";
     src: url(../../font/FunCityLevel2Stencil.otf);
 }
+
 :root {
     /*Colores*/
     --colorBlanco: #FFFFFF;
-    --colorAzul: #010B56;
+    --colorAzul: #0c0094;
     --colorRojo: #E51B23;
     --colorGris: #C4C4C4;
     /*Fuentes*/
@@ -15,51 +17,81 @@
     --raleway: 'Raleway', sans-serif;
     --smt: 'Fun City Level2', cursive;
 }
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
-*, *::after, *::before {
+
+*,
+*::after,
+*::before {
     box-sizing: inherit;
 }
+
 body {
     margin: 0;
     padding: 0;
     font-size: 1.8rem;
     font-family: var(--raleway);
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--anton);
 }
+
 #contenido-principal {
     margin-top: 2rem;
 }
+
 .row {
-    margin: 0!important;
+    margin: 0 !important;
 }
+
 .light-overlay {
     background-color: rgba(255, 250, 250, 0.6);
 }
+
+
 /* Formularios - General */
-input, textarea {
+
+input,
+textarea {
     font-family: var(--anton);
 }
-input.with-error + small, textarea.with-error + small {
+
+input.with-error+small,
+textarea.with-error+small {
     display: none;
 }
-input.with-error:focus + small, textarea.with-error:focus + small {
+
+input.with-error:focus+small,
+textarea.with-error:focus+small {
     display: block;
     margin-bottom: 2rem;
 }
+
+
 /* Formularios - Number */
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
+
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
+
+
 /* Formularios - File */
+
 input[type=file] {
     width: 0.1px;
     height: 0.1px;
@@ -68,23 +100,30 @@ input[type=file] {
     position: absolute;
     z-index: -1;
 }
+
 label.file {
-    color: var(--colorBlanco)!important;
+    color: var(--colorBlanco) !important;
 }
+
 label.file:hover {
     border: solid .2rem var(--colorAzul);
     background-color: var(--colorGris);
     cursor: pointer;
     transition: all .3s ease-in;
 }
+
+
 /* Formularios - Radio */
+
 input[type=radio] {
     display: none;
 }
-input[type=radio]:checked + label .icono{
+
+input[type=radio]:checked+label .icono {
     background: var(--colorAzul);
     transition: all .3s ease-in;
 }
+
 .radio-button label .icono {
     display: inline-block;
     position: relative;
@@ -95,20 +134,27 @@ input[type=radio]:checked + label .icono{
     height: 1.8rem;
     background: var(--colorBlanco);
 }
-.radio-button label{
+
+.radio-button label {
     position: relative;
 }
+
 .radio-button label:hover {
     cursor: pointer;
 }
+
+
 /* Formularios - Checkbox */
+
 input[type=checkbox] {
     display: none;
 }
-input[type=checkbox]:checked + label .icono{
+
+input[type=checkbox]:checked+label .icono {
     background: var(--colorAzul);
     transition: all .3s ease-in;
 }
+
 .checkbox-button label .icono {
     display: inline-block;
     position: relative;
@@ -118,14 +164,21 @@ input[type=checkbox]:checked + label .icono{
     height: 1.8rem;
     background: var(--colorBlanco);
 }
-.checkbox-button label{
+
+.checkbox-button label {
     position: relative;
 }
+
 .checkbox-button label:hover {
     cursor: pointer;
 }
+
+
 /* Formularios - Text */
-input.text, input.pass, label.file {
+
+input.text,
+input.pass,
+label.file {
     display: block;
     width: 75%;
     margin: 0 auto;
@@ -136,17 +189,22 @@ input.text, input.pass, label.file {
     border: solid 2px var(--colorBlanco);
     border-radius: 30px;
 }
-input.text-white, input.pass-white, textarea.text-white {
+
+input.text-white,
+input.pass-white,
+textarea.text-white,
+select.text-white {
     display: block;
     width: 75%;
     margin: 0 auto;
     margin-bottom: 20px;
     background-color: var(--colorBlanco);
-    color: var(--colorAzul)!important;
+    color: var(--colorAzul) !important;
     font-size: 20px;
     border: solid 2px var(--colorAzul);
     border-radius: 30px;
 }
+
 input.submit-white {
     background-color: var(--colorBlanco);
     color: var(--colorAzul);
@@ -155,87 +213,109 @@ input.submit-white {
     border-radius: 30px;
     padding: 10px 40px;
 }
+
 input.submit-white:hover {
     background-color: var(--colorGris);
     transition: all .2s ease-in;
 }
+
+
 /************* Elementos y clases globales **************/
 
+
 /************* Header **************/
+
 #header-admin {
     background-color: var(--colorAzul);
     padding: 1rem;
 }
+
 #header-admin img {
     width: 12rem;
     height: 12rem;
 }
+
 #header-admin h1 {
     color: var(--colorBlanco);
     font-family: var(--tradeWinds);
     font-size: 4rem;
 }
-@media only screen and (max-width: 380px){
+
+@media only screen and (max-width: 380px) {
     #header-admin h1 {
         font-size: 3.5rem;
     }
 }
-@media only screen and (max-width: 300px){
+
+@media only screen and (max-width: 300px) {
     #header-admin h1 {
         font-size: 2rem;
     }
 }
+
+
 /************* Header **************/
 
 
 /************* Sidebar **************/
+
 #contenido-principal {
     width: 95%;
     transition: all .5s ease-in;
 }
+
 #sidebar {
     background-color: var(--colorAzul);
     width: 5%;
     transition: all .5s ease-in;
 }
+
 #sidebar #boton-sidebar {
     width: 100%;
     color: var(--colorBlanco);
     font-size: 2.5rem;
     margin: 0 5%;
 }
+
 #sidebar #boton-sidebar:hover {
     color: var(--colorGris);
     cursor: pointer;
     transition: all .3s ease-in;
 }
+
 #sidebar .categoria {
     width: 100%;
     transition: all .3s ease-in;
 }
+
 #sidebar .categoria h2 {
     font-family: var(--anton);
     color: var(--colorBlanco);
     margin-bottom: 2rem;
     padding: 2rem;
 }
+
 #sidebar .categoria h2 a {
     font-family: var(--anton);
 }
+
 #sidebar .categoria i {
     margin-right: 1rem;
 }
+
 #sidebar .categoria a {
     font-family: var(--raleway);
     font-weight: lighter;
     color: var(--colorBlanco);
     text-decoration: none;
 }
+
 #sidebar .categoria a:hover {
     color: var(--colorGris);
     transition: all .2s ease-in;
 }
-@media only screen and (max-width: 900px){
+
+@media only screen and (max-width: 900px) {
     #contenido-principal {
         width: 90%;
     }
@@ -243,7 +323,8 @@ input.submit-white:hover {
         width: 10%;
     }
 }
-@media only screen and (max-width: 480px){
+
+@media only screen and (max-width: 480px) {
     #contenido-principal {
         width: 85%;
     }
@@ -251,100 +332,134 @@ input.submit-white:hover {
         width: 15%;
     }
 }
+
+
 /************* Sidebar **************/
 
 
 /************* Footer **************/
+
 #footer-login {
     height: 10vh;
     background-color: var(--colorAzul);
 }
+
 #footer-login .spam a {
     text-decoration: none;
     color: var(--colorBlanco);
     font-size: 20px;
 }
+
 #footer-login .smt {
     font-family: var(--smt);
     color: var(--colorRojo);
 }
+
+
 /************* Footer **************/
 
 
 /************* Login **************/
+
+
 /* Header */
+
 #header {
     height: 10vh;
     background-color: var(--colorAzul);
 }
+
 #header a {
     color: var(--colorBlanco);
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
 }
+
 #header a:hover {
     color: var(--colorGris);
     transition: all .2s ease-in-out;
 }
+
+
 /* Cuadro de Logeo */
+
 #login {
     height: 80vh;
 }
+
 #login .caja {
     width: 75vw;
     padding: 20px;
     background-color: var(--colorAzul);
 }
+
 #login img {
     width: 100px;
     height: 100px;
 }
+
 #login h1 {
     color: var(--colorBlanco);
 }
+
 #login .separador {
     border: solid 2px var(--colorBlanco);
 }
+
+
 /************* Login **************/
 
+
 /************* Panel de Administración - Nuevo Elemento **************/
+
 #descripcion-nuevo-elemento h1 {
     color: var(--colorAzul);
 }
-#formulario-creacion input, #formulario-creacion textarea {
+
+#formulario-creacion input,
+#formulario-creacion textarea {
     text-transform: uppercase;
 }
+
 #formulario-creacion label {
     color: var(--colorAzul);
     font-family: var(--anton);
     font-size: 2rem;
 }
+
 #formulario-creacion label span {
     font-size: 1.5rem;
 }
+
 #formulario-creacion input[type=submit] {
     width: 50%;
     padding: 1rem;
 }
+
 #formulario-creacion input[type=submit]:hover {
     background-color: var(--colorGris);
     color: var(--colorAzul);
     border: solid .2rem var(--colorAzul);
     transition: all .3s ease-in;
 }
+
+
 /************* Panel de Administración - Nuevo Elemento **************/
 
 
 /************* Panel de Administración - Administrar Elemento **************/
+
 #descripcion-administrar-elemento h1 {
     color: var(--colorAzul);
 }
+
 #tabla-administrar {
     font-family: var(--anton);
     width: 80%;
     margin: 0 auto 2rem auto;
 }
+
 #tabla-administrar thead th {
     border: solid .5rem var(--colorAzul);
     background-color: var(--colorAzul);
@@ -352,20 +467,28 @@ input.submit-white:hover {
     font-size: 2.6rem;
     padding: 1rem;
 }
+
 #tabla-administrar tbody td {
     border: solid .5rem var(--colorAzul);
     color: var(--colorAzul);
 }
+
 #tabla-administrar a {
     font-size: 2rem;
 }
-@media only screen and (min-width: 480px){
+
+@media only screen and (min-width: 480px) {
     #tabla-de-administracion {
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE 10+ */
     }
-    #tabla-de-administracion::-webkit-scrollbar { 
-        display: none; /* Chrome Safari */
-    }   
+    #tabla-de-administracion::-webkit-scrollbar {
+        display: none;
+        /* Chrome Safari */
+    }
 }
+
+
 /************* Panel de Administración - Administrar Elemento **************/

@@ -30,6 +30,9 @@
                 <ul class="carousel-indicators" style="margin-bottom:0">
                     <?php
                         $contador = 0; 
+                        if (count($torneos) == 0) { ?>
+                            <li data-target="#carousel-torneos" data-slide-to="0" class="active"></li>
+                        <?php }
                         foreach($torneos as $torneo){
                     ?>
                             <li data-target="#carousel-torneos" data-slide-to="<?php echo $contador; ?>" class="<?php if($contador == 0) echo "active"; ?>"></li>
@@ -39,16 +42,37 @@
                     ?>
                 </ul>
                 <!-- SLIDES -->
-                <div class="Torneos carousel-inner">
+                <div class="Torneos carousel-inner" <?php if(count($torneos)==0){ ?> style="
+                            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/Slides-Index/1.png);" >
                     <?php
+                }
+                        if (count($torneos) == 0) { ?>
+                        <!-- SLIDE POR DEFECTO -->
+                            <div class="carousel-item active">
+                                <div class="torneo">
+                                    <h3>No hay torneos cargados por el momento</h3>
+
+                                    <br>
+                                    
+                                </div>
+                            </div>
+                    <?php
+                        }
                         $contador = 0; 
                         foreach($torneos as $torneo){
                             $torneo['categorias'] = str_replace('{', '', $torneo['categorias']);
                             $torneo['categorias'] = str_replace('}', '', $torneo['categorias']);
                             $torneo['reglas'] = str_replace('*', '<br><br>*', $torneo['reglas']);
                     ?>
+                            
                             <!-- SLIDE -->
-                            <div class="carousel-item <?php if($contador == 0) echo "active"; ?>">
+                            <div class="carousel-item <?php if($contador == 0) echo "active"; ?>" style="
+                            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<?php echo $torneo['imagen'] ?>');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            text-align: center;
+                            padding: 10px;">
                                 <div class="torneo">
                                     <h3><?php echo $torneo['nombre']; ?></h3>
 
@@ -58,31 +82,9 @@
 
                                     <ul class="listabotones">
                                         <li><a href="calendario.php?torneo=<?php echo $torneo['id']; ?>">Calendario</a></li>
-                                        <li><a href="#reglas-torneo" data-toggle="modal" data-target="#modal-torneo-<?php echo $torneo['id']; ?>">Ver Reglas</a></li>
+                                        <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
+                                        <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
                                     </ul>
-                                </div>
-                            </div>
-                            <!-- MODAL TORNEO -->
-                            <div id="modal-torneo-<?php echo $torneo['id']; ?>" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="Torneos" aria-hidden="true">
-                                <!-- Contenido del Modal -->
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content" style="padding:2rem;">
-                                        <div class="reglas-torneo">
-                                            <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" style="font-size:4rem;">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <!-- DESCRIPCION -->
-                                            <section class="descripcion text-center">
-                                                <h1>REGLAS DEL TORNEO</h1>
-
-                                                <hr>
-                                            </section>
-                                            <!-- REGLAS -->
-                                            <section class="reglas text-left">
-                                                <?php echo $torneo['reglas']; ?>
-                                            </section>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                     <?php
@@ -99,18 +101,7 @@
                 </a>
             </div>
         </section>
-        <!-- SECCION  INSCRIPCIONES -->
-        <section class="inscripciones">
-            <div class="container">
-                <h2 class="titulo-body">Inscripciones</h2>
-                <p class="inscripciones-parrafo">¿Deseas participar en uno de nuestros torneos? Haz click en el siguiente botón y completa el formulario para que podamos evaluar tu solicitud.</p>
-                <div class="text-center boton-inscripcion">
-                    <a href="inscripciones.php">Inscripción</a>
-                </div>
-            </div>
-
-            <br><br><br>
-        </section>
+        
         <!-- FOOTER -->
         <?php include 'templates/footer.php' ?>
         <!-- SCRIPTS -->

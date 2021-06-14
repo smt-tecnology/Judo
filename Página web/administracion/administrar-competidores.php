@@ -13,6 +13,14 @@
     while($competidoresObtenidos = $resultadoBD->fetch_assoc()) {
         array_push($competidores, $competidoresObtenidos);
     }
+    //TORNEOS
+    $cargarTorneo = " SELECT * FROM torneos ORDER BY nombre ";
+    $resultadoBD = $con->query($cargarTorneo);
+
+    $torneos = array();
+    while($competidoresTorneos = $resultadoBD->fetch_assoc()) {
+        array_push($torneos, $competidoresTorneos);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -72,26 +80,16 @@
         <?php 
             foreach($competidores as $competidor){
                 $dniUsuario = $competidor['dni'];
-
-                $puntosSenior = 0;
-                $puntosCadete = 0;
-                $puntosKyuGraduado = 0;
-                $puntosKyuNovicio = 0;
-                $puntosInfantilB = 0;
         ?>
                 <div id="modal-puntos-<?php echo $competidor['dni']; ?>" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="SumarPuntos" aria-hidden="true">
                     <!-- Cargo los puntajes del usuario -->
                     <?php 
                         $cargarPuntos = " SELECT * FROM `puntos-competidor` WHERE usuario = $dniUsuario ";
                         $resultadoBD = $con->query($cargarPuntos);
-                        $puntosObtenidos = $resultadoBD->fetch_assoc();
 
-                        if($puntosObtenidos){
-                            $puntosSenior = $puntosObtenidos['puntos_senior'];
-                            $puntosCadete = $puntosObtenidos['puntos_cadete'];
-                            $puntosKyuGraduado = $puntosObtenidos['puntos_kyu_graduado'];
-                            $puntosKyuNovicio = $puntosObtenidos['puntos_kyu_novicio'];
-                            $puntosInfantilB = $puntosObtenidos['puntos_infantil_b'];
+                        $puntosCompetidor = array();
+                        while($puntosObtenidos = $resultadoBD->fetch_assoc()) {
+                            array_push($puntosCompetidor, $puntosObtenidos);
                         }
                     ?>
                     
@@ -107,7 +105,9 @@
                                     <h1>ADMINISTRAR PUNTOS</h1>
                                     <p>
                                         A continuación podrá actualizar los puntos del 
-                                        participante seleccionado.
+                                        participante seleccionado. Puede ver los puntos que el competidor 
+                                        tiene en cada torneo en el <a href="../ranking.php" target="_blank">siguiente link</a>
+                                        buscándolo y haciendo click sobre el mismo
                                     </p>
 
                                     <hr>
@@ -116,11 +116,23 @@
                                 <!-- Formulario -->
                                 <section id="formulario-creacion">
                                     <form id="actualizar-puntos-competidor" class="container text-center" data-usuario="<?php echo $dniUsuario; ?>" action="#">
+                                        <!-- Seleccionar Torneo -->
+                                        <div class="seleccionar-torneo">
+                                            <select id="torneo-seleccionado" class="text-white text-center" required>
+                                                <option disabled>SELECCIONE UN TORNEO</option>
+                                                <?php 
+                                                    foreach($torneos as $torneo){
+                                                ?>  
+                                                        <option value="<?php echo $torneo['id']; ?>"><?php echo $torneo['nombre']; ?></option>
+                                                <?php 
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
                                         <!-- Puntos Senior -->
                                         <h3 class="text-left">PUNTOS EN LA CATEGORÍA SENIOR</h3>
                                         <div class="puntos-senior">
-                                            <p>Actualmente el competidor tiene <?php echo $puntosSenior; ?> puntos</p>
-                                            <input id="puntos-senior" class="text-white text-center with-error" type="number" data-valor-inicial="<?php echo $puntosSenior; ?>" required>
+                                            <input id="puntos-senior" class="text-white text-center with-error" type="number" required>
                                             <small>
                                                 * Para sumar puntos, ingrese un número entero <br>
                                                 * Para restar puntos, ingrese el símbolo '-' seguido de un número entero
@@ -129,8 +141,7 @@
                                         <!-- Puntos Cadete -->
                                         <h3 class="text-left">PUNTOS EN LA CATEGORÍA CADETE</h3>
                                         <div class="puntos-cadete">
-                                            <p>Actualmente el competidor tiene <?php echo $puntosCadete; ?> puntos</p>
-                                            <input id="puntos-cadete" class="text-white text-center with-error" type="number" data-valor-inicial="<?php echo $puntosCadete; ?>" required>
+                                            <input id="puntos-cadete" class="text-white text-center with-error" type="number" required>
                                             <small>
                                                 * Para sumar puntos, ingrese un número entero <br>
                                                 * Para restar puntos, ingrese el símbolo '-' seguido de un número entero
@@ -139,8 +150,7 @@
                                         <!-- Puntos Kyu Graduado -->
                                         <h3 class="text-left">PUNTOS EN LA CATEGORÍA KYU GRADUADO</h3>
                                         <div class="puntos-kyuGraduado">
-                                            <p>Actualmente el competidor tiene <?php echo $puntosKyuGraduado; ?> puntos</p>
-                                            <input id="puntos-kyuGraduado" class="text-white text-center with-error" type="number" data-valor-inicial="<?php echo $puntosKyuGraduado; ?>" required>
+                                            <input id="puntos-kyuGraduado" class="text-white text-center with-error" type="number" required>
                                             <small>
                                                 * Para sumar puntos, ingrese un número entero <br>
                                                 * Para restar puntos, ingrese el símbolo '-' seguido de un número entero
@@ -149,8 +159,7 @@
                                         <!-- Puntos Kyu Novicio -->
                                         <h3 class="text-left">PUNTOS EN LA CATEGORÍA KYU NOVICIO</h3>
                                         <div class="puntos-kyuNovicio">
-                                            <p>Actualmente el competidor tiene <?php echo $puntosKyuNovicio; ?> puntos</p>
-                                            <input id="puntos-kyuNovicio" class="text-white text-center with-error" type="number" data-valor-inicial="<?php echo $puntosKyuNovicio; ?>" required>
+                                            <input id="puntos-kyuNovicio" class="text-white text-center with-error" type="number" required>
                                             <small>
                                                 * Para sumar puntos, ingrese un número entero <br>
                                                 * Para restar puntos, ingrese el símbolo '-' seguido de un número entero
@@ -159,8 +168,7 @@
                                         <!-- Puntos Infantil B -->
                                         <h3 class="text-left">PUNTOS EN LA CATEGORÍA INFANTIL B</h3>
                                         <div class="puntos-infantilB">
-                                            <p>Actualmente el competidor tiene <?php echo $puntosInfantilB; ?> puntos</p>
-                                            <input id="puntos-infantilB" class="text-white text-center with-error" type="number" data-valor-inicial="<?php echo $puntosInfantilB; ?>" required>
+                                            <input id="puntos-infantilB" class="text-white text-center with-error" type="number" required>
                                             <small>
                                                 * Para sumar puntos, ingrese un número entero <br>
                                                 * Para restar puntos, ingrese el símbolo '-' seguido de un número entero

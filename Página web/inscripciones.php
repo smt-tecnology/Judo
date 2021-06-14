@@ -25,7 +25,7 @@
             <!-- FORMULARIO -->
             <div id="formulario-inscripcion">
                 <form id="enviar-inscripcion" class="container text-center" action="#">
-                    <h3 class="text-left">INFORMACIÓN PERSONAL</h3>
+                    <h3 class="text-center">INFORMACIÓN PERSONAL</h3>
                     <!-- Nombre -->
                     <div class="nombre">
                         <input id="nombre-competidor" class="text-white text-center with-error" type="text" placeholder="NOMBRE">
@@ -72,26 +72,32 @@
                         <div class="row etiqueta">
                             <label for="genero-competidor" class="col-md-12">GÉNERO</label>
                         </div>
-                        <fieldset id="genero-competidor" class="row radio-button" value="GÉNERO">
-                            <div class="col-6 radio-button">
-                                <input id="genero-masculino" type="radio" value="MASCULINO" name="genero-competidor"> 
-                                <label for="genero-masculino">
-                                    <div class="icono"></div>
-                                    <span>MASCULINO</span>
-                                </label>
-                            </div>
-                            <div class="col-6 radio-button">
-                                <input id="genero-femenino" type="radio" value="FEMENINO" name="genero-competidor"> 
-                                <label for="genero-femenino">
-                                    <div class="icono"></div>
-                                    <span>FEMENINO</span>
-                                </label>
+                        <fieldset id="genero-competidor" class="radio-button" value="GÉNERO">
+                            <div class="row">
+                                <div class="col-6 radio-button">
+                                    <input id="genero-masculino" type="radio" value="MASCULINO" name="genero-competidor"> 
+                                    <label for="genero-masculino">
+                                        <div class="icono"></div>
+                                        <span>MASCULINO</span>
+                                    </label>
+                                </div>
+                                <div class="col-6 radio-button">
+                                    <input id="genero-femenino" type="radio" value="FEMENINO" name="genero-competidor"> 
+                                    <label for="genero-femenino">
+                                        <div class="icono"></div>
+                                        <span>FEMENINO</span>
+                                    </label>
+                                </div>
                             </div>
                         </fieldset>
                     </div>
                     <!-- Nacimiento -->
                     <div class="nacimiento">
-                        <input id="nacimiento-competidor" class="datepicker-nacimiento text-white text-center" placeholder="FECHA DE NACIMIENTO">
+                        <input id="nacimiento-competidor" class="text-white text-center with-error" type="text" placeholder="FECHA DE NACIMIENTO">
+                        <small>
+                            Debe cumplirse el siguiente formato: "DIA/MES/AÑO" <br>
+                            * Si desea resetear el campo porque se equivocó en algún valor presione la tecla "Z"
+                        </small>
                     </div>
                     <!-- Foto -->
                     <div class="foto">
@@ -99,7 +105,7 @@
                         <label for="foto-competidor" class="file text-center col-md-12"><div>SUBIR FOTO</div></label>
                     </div>
 
-                    <h3 class="text-left">INFORMACIÓN DEPORTIVA</h3>
+                    <h3 class="text-center">INFORMACIÓN DEPORTIVA</h3>
                     <!-- Federación -->
                     <div class="federacion">
                         <input id="federacion-competidor" class="text-white text-center with-error" type="text" placeholder="FEDERACIÓN">
@@ -128,48 +134,54 @@
                         <div class="row etiqueta">
                             <label for="categoria-competidor" class="col-md-12">CATEGORÍA</label>
                         </div>
-                        <fieldset id="categoria-competidor" class="row radio-button" value="CATEGORÍA">
-                            <div class="col-md-4 radio-button">
-                                <input id="categoria-senior" type="radio" value="SENIOR" name="categoria-competidor"> 
-                                <label for="categoria-senior">
-                                    <div class="icono"></div>
-                                    <span>SENIOR</span>
-                                </label>
+                        <div id="categoria-competidor" class="radio-button" value="CATEGORÍA">
+                            <div class="row">
+                                <div class="col-md-4 radio-button">
+                                    <input id="categoria-senior" type="radio" value="SENIOR" name="categoria-competidor"> 
+                                    <label for="categoria-senior">
+                                        <div class="icono"></div>
+                                        <span>SENIOR</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 radio-button">
+                                    <input id="categoria-cadete" type="radio" value="CADETE" name="categoria-competidor"> 
+                                    <label for="categoria-cadete">
+                                        <div class="icono"></div>
+                                        <span>CADETE</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 radio-button">
+                                    <input id="categoria-kyuGraduado" type="radio" value="KYU GRADUADO" name="categoria-competidor"> 
+                                    <label for="categoria-kyuGraduado">
+                                        <div class="icono"></div>
+                                        <span>KYU GRADUADO</span>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col-md-4 radio-button">
-                                <input id="categoria-cadete" type="radio" value="CADETE" name="categoria-competidor"> 
-                                <label for="categoria-cadete">
-                                    <div class="icono"></div>
-                                    <span>CADETE</span>
-                                </label>
+
+                            <div class="row">
+                                <div class="col-md-6 radio-button">
+                                    <input id="categoria-kyuNovicio" type="radio" value="KYU NOVICIO" name="categoria-competidor"> 
+                                    <label for="categoria-kyuNovicio">
+                                        <div class="icono"></div>
+                                        <span>KYU NOVICIO</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 radio-button">
+                                    <input id="categoria-infantilB" type="radio" value="INFANTIL B" name="categoria-competidor"> 
+                                    <label for="categoria-infantilB">
+                                        <div class="icono"></div>
+                                        <span>INTANTIL B</span>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col-md-4 radio-button">
-                                <input id="categoria-kyuGraduado" type="radio" value="KYU GRADUADO" name="categoria-competidor"> 
-                                <label for="categoria-kyuGraduado">
-                                    <div class="icono"></div>
-                                    <span>KYU GRADUADO</span>
-                                </label>
-                            </div>
-                            <div class="col-md-6 radio-button">
-                                <input id="categoria-kyuNovicio" type="radio" value="KYU NOVICIO" name="categoria-competidor"> 
-                                <label for="categoria-kyuNovicio">
-                                    <div class="icono"></div>
-                                    <span>KYU NOVICIO</span>
-                                </label>
-                            </div>
-                            <div class="col-md-6 radio-button">
-                                <input id="categoria-infantilB" type="radio" value="INFANTIL B" name="categoria-competidor"> 
-                                <label for="categoria-infantilB">
-                                    <div class="icono"></div>
-                                    <span>INTANTIL B</span>
-                                </label>
-                            </div>
-                        </fieldset>
+                        </div>
                     </div>
 
                     <hr>
                     <!-- Enviar formulario -->
-                    <input class="text text-center" type="submit" value="CREAR">
+                    <p>* Al enviar tus datos confirmás que aceptas los <a href="terminosycondiciones.php">Terminos y condiciones</a></p>
+                    <input class="text text-center" type="submit" value="ENVIAR">
                 </form>
             </div>
         </section>

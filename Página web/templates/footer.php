@@ -9,6 +9,6 @@
     <hr class="linea-footer">
 
     <div class="text-center spam">
-        <a href="https://smtecnology.store">Diseño Web by <span class="smt">SMT</span></a>
+        <a href="https://smtechnology.com.ar">Diseño Web by <span class="smt">SMT</span></a>
     </div>
 </footer>

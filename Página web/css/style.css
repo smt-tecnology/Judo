@@ -1,46 +1,81 @@
 /************* Elementos y clases globales **************/
+
 @font-face {
     font-family: "Fun City Level2";
     src: url(../font/FunCityLevel2Stencil.otf);
 }
+
 :root {
     /*Colores*/
-    --colorBlanco: #FFFFFF;
-    --colorAzul: #010B56;
-    --colorRojo: #E51B23;
-    --colorGris: #C4C4C4;
+    /*opciones
+    #0c0094
+    #605d82
+    #c30404
+    #9a0000
+    #9e0000
+    #7d001f
+    #7b0202
+    #610a0a
+    */
+    --colorBlanco: #ffffff;
+    --colorAzul: #0c0094;
+    --colorRojo: #e51b23;
+    --colorGris: #c4c4c4;
     --colorNegro: #000000;
     /*Fuentes*/
-    --tradeWinds: 'Trade Winds', cursive;
-    --anton: 'Anton', cursive;
-    --raleway: 'Raleway', sans-serif;
-    --smt: 'Fun City Level2', cursive;
+    --tradeWinds: "Trade Winds", cursive;
+    --amaip: "Rubik", Helvetica, Arial, sans-serif;
+    --anton: "Anton", cursive;
+    --raleway: "Raleway", sans-serif;
+    --smt: "Fun City Level2", cursive;
 }
+
 html {
     box-sizing: border-box;
 }
-*, *::after, *::before {
+
+*,
+*::after,
+*::before {
     box-sizing: inherit;
 }
+
 body {
     margin: 0;
     padding: 0;
     font-family: var(--raleway);
 }
+
 li {
     list-style: none;
 }
+
 a.titulo {
     text-decoration: none;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--anton);
 }
+
 h1.titulo {
     color: var(--colorBlanco);
-    font-family: var(--tradeWinds), cursive;
+    font-family: var(--amaip);
     margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
 }
+
+h1.titulo span {
+    font-family: var(--tradeWinds), cursive;
+    font-size: smaller;
+}
+
 h2.titulo-body {
     font-size: 40px;
     color: var(--colorAzul);
@@ -48,89 +83,69 @@ h2.titulo-body {
     margin-bottom: 20px;
     text-align: center;
 }
+
 #contenido-principal {
     margin-top: 20px;
 }
+
 .row {
-    margin: 0!important;
+    margin: 0 !important;
 }
+
 .carousel-caption {
-    right: 0!important;
-    left: 0!important;
-    width: 100%!important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
 }
+
 .carousel-caption h3 {
-    padding: 20px!important;
+    padding: 20px !important;
 }
+
 .overlay {
     background-color: rgba(0, 0, 0, 0.6);
 }
+
 .light-overlay {
     background-color: rgba(255, 250, 250, 0.6);
 }
-/* Tablas */
-table {
-    font-family: var(--anton);
-    width: 100%;
-    margin: 0 auto 20px auto;
-}
-table img {
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-}
-table thead th {
-    border: solid 5px var(--colorAzul);
-    background-color: var(--colorAzul);
-    color: var(--colorBlanco);
-    font-size: 26px;
-    padding: 10px;
-}
-table thead input {
-    border: none;
-    border-radius: 100px;
-    background-color: var(--colorBlanco);
-    height: 25px;
-    font-family: var(--anton);
-    color: var(--colorAzul);
-    text-align: center;
-}
-table tbody td {
-    border: solid 5px var(--colorAzul);
-    color: var(--colorAzul);
-    padding: 5px;
-    cursor: pointer;
-}
-table tbody td:hover {
-    color: var(--colorBlanco);
-    background-color: var(--colorAzul);
-    transition: all .3s ease-in;
-}
-table tbody td.active {
-    background-color: var(--colorAzul);
-    color: var(--colorBlanco);
-}
+
+
 /* Formularios - General */
-input, textarea {
+
+input,
+textarea {
     font-family: var(--anton);
 }
-input.with-error + small, textarea.with-error + small {
+
+input.with-error+small,
+textarea.with-error+small {
     display: none;
 }
-input.with-error:focus + small, textarea.with-error:focus + small {
+
+input.with-error:focus+small,
+textarea.with-error:focus+small {
     display: block;
     margin-bottom: 20px;
 }
+
+
 /* Formularios - Number */
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
-input[type=number] {
-  -moz-appearance: textfield;
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }
+
+
 /* Formularios - File */
-input[type=file] {
+
+input[type="file"] {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -138,23 +153,30 @@ input[type=file] {
     position: absolute;
     z-index: -1;
 }
+
 label.file {
-    color: var(--colorBlanco)!important;
+    color: var(--colorBlanco) !important;
 }
+
 label.file:hover {
     border: solid 2px var(--colorAzul);
     background-color: var(--colorGris);
     cursor: pointer;
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
+
+
 /* Formularios - Radio */
-input[type=radio] {
+
+input[type="radio"] {
     display: none;
 }
-input[type=radio]:checked + label .icono{
+
+input[type="radio"]:checked+label .icono {
     background: var(--colorAzul);
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
+
 .radio-button label .icono {
     display: inline-block;
     position: relative;
@@ -165,20 +187,27 @@ input[type=radio]:checked + label .icono{
     height: 18px;
     background: var(--colorBlanco);
 }
-.radio-button label{
+
+.radio-button label {
     position: relative;
 }
+
 .radio-button label:hover {
     cursor: pointer;
 }
+
+
 /* Formularios - Checkbox */
-input[type=checkbox] {
+
+input[type="checkbox"] {
     display: none;
 }
-input[type=checkbox]:checked + label .icono{
+
+input[type="checkbox"]:checked+label .icono {
     background: var(--colorAzul);
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
+
 .checkbox-button label .icono {
     display: inline-block;
     position: relative;
@@ -188,14 +217,21 @@ input[type=checkbox]:checked + label .icono{
     height: 18px;
     background: var(--colorBlanco);
 }
-.checkbox-button label{
+
+.checkbox-button label {
     position: relative;
 }
+
 .checkbox-button label:hover {
     cursor: pointer;
 }
+
+
 /* Formularios - Text */
-input.text, input.pass, label.file {
+
+input.text,
+input.pass,
+label.file {
     display: block;
     width: 75%;
     margin: 0 auto;
@@ -206,17 +242,21 @@ input.text, input.pass, label.file {
     border: solid 2px var(--colorBlanco);
     border-radius: 30px;
 }
-input.text-white, input.pass-white, textarea.text-white {
+
+input.text-white,
+input.pass-white,
+textarea.text-white {
     display: block;
     width: 75%;
     margin: 0 auto;
     margin-bottom: 20px;
     background-color: var(--colorBlanco);
-    color: var(--colorAzul)!important;
+    color: var(--colorAzul) !important;
     font-size: 20px;
     border: solid 2px var(--colorAzul);
     border-radius: 30px;
 }
+
 input.submit-white {
     background-color: var(--colorBlanco);
     color: var(--colorAzul);
@@ -225,58 +265,93 @@ input.submit-white {
     border-radius: 30px;
     padding: 10px 40px;
 }
+
 input.submit-white:hover {
     background-color: var(--colorGris);
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
 }
+
+@media only screen and (max-width: 992px) {
+    h1.titulo {
+        font-size: 32px;
+    }
+}
+
 @media (max-width: 768px) {
     h1.titulo {
         font-size: 32px;
         text-align: center;
     }
 }
+
+@media (max-width: 360px) {
+    h1.titulo {
+        margin-right: 5px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+    }
+}
+
+
 /************* Elementos y clases globales **************/
 
 
 /************* Header **************/
+
 .header {
     background-color: var(--colorAzul);
 }
+
 .logo {
     width: 100%;
     max-width: 130px;
 }
+
 .header .row {
     padding: 5px;
 }
+
 .navmobile {
     display: none;
 }
+
 .listanav {
     display: flex;
-    list-style: none;
+    justify-content: center;
 }
+
 .itemnav {
-    padding: 0 20px;
+    padding: 0 10px;
 }
+
 .itemnav a {
     color: var(--colorBlanco);
     font-family: var(--raleway);
     font-weight: 700;
     text-decoration: none;
 }
+
 .itemnav a:hover {
     color: var(--colorGris);
-    transition: .3s all ease-out;
+    transition: 0.3s all ease-out;
 }
+
 .menuicono i:hover {
     color: var(--colorGris);
     cursor: pointer;
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
-@media only screen and (max-width: 768px) {
-    .logo {
-        margin: 10px;
+
+@media only screen and (max-width: 992px) {
+    .itemnav {
+        padding: 0 10px;
+    }
+    .menu {
+        color: white;
+        font-size: 50px;
     }
     .navmobile {
         text-align: center;
@@ -286,120 +361,187 @@ input.submit-white:hover {
     .listanav {
         display: none;
     }
+    .itemnav a {
+        font-size: 20px;
+        font-weight: 400;
+    }
     .open {
         display: block;
-    }
-    .opening {
-        display: none;
     }
     .open li {
         padding: 10px 0;
         font-size: 25px;
     }
-    .menu {
-        color: white;
-        font-size: 50px;
-    }
-    .itemnav a {
-        font-size: 20px;
-        font-weight: 400;
+    .opening {
+        display: none;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .logo {
+        width: 80%;
+    }
+}
+
+
 /************* Header **************/
 
 
 /************* Footer **************/
+
 .container-footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
+
 .footer {
     background-color: var(--colorAzul);
 }
+
 .texto-footer {
     color: var(--colorBlanco);
     font-size: 20px;
     margin-top: 10px;
     text-align: center !important;
 }
+
 .panel {
     text-align: right;
 }
+
 .panel:hover {
     cursor: pointer;
 }
+
 .linea-footer {
     color: var(--colorBlanco);
     background-color: var(--colorBlanco);
 }
-.spam a, .copyright a {
+
+.spam a,
+.copyright a {
     text-decoration: none;
     color: var(--colorBlanco);
     font-size: 20px;
 }
+
 .copyright a {
     font-weight: 400;
 }
+
 .spam {
     padding: 20px;
 }
+
 .smt {
     font-family: var(--smt);
     color: var(--colorRojo);
 }
-@media only screen and (max-width: 992px){
+
+@media only screen and (max-width: 992px) {
     .texto-footer {
         font-size: 17px;
     }
 }
+
+@media only screen and (max-width: 572px) {
+    h1.titulo {
+        font-size: 21px;
+        text-align: center;
+    }
+}
+
+
 /************* Footer **************/
 
 
 /************* Index **************/
+
+
 /* Federaciones */
+
 .federaciones {
     margin: 30px 0;
 }
+
 .federacion img {
     width: 60%;
 }
+
 .federacion p {
     font-family: var(--raleway);
 }
+
+.objetivo img {
+    width: 35% !important;
+}
+
+
+/* Parches */
+
+.parches {
+    margin-bottom: 40px;
+    background-color: #d9daef;
+    padding: 3rem;
+}
+
+.parches img {
+    border: 4px solid var(--colorAzul);
+    border-radius: 360px;
+}
+
+
 /* Galería */
+
 .galeria {
     margin-top: 40px;
     margin-bottom: -20px;
 }
+
 .imagen-galeria img {
     width: 100%;
     position: relative;
 }
+
 .imagen-galeria {
     background-color: var(--colorNegro);
     text-align: center;
 }
+
 .club-galeria {
     font-family: var(--raleway);
 }
+
 .titulo-imagen {
     position: absolute;
     top: 10px;
     left: 10px;
 }
+
 .videos iframe {
     width: 90%;
 }
+
+
 /* Inscripciones */
+
 .inscripciones-parrafo {
     text-align: center;
     font-size: 20px;
     font-family: var(--raleway);
 }
+
 .boton-inscripcion {
     margin-top: 50px;
 }
+
 .boton-inscripcion a {
     color: var(--colorAzul);
     text-decoration: none;
@@ -409,18 +551,23 @@ input.submit-white:hover {
     border: 4px solid var(--colorAzul);
     border-radius: 360px;
 }
+
 .boton-inscripcion a:hover {
     color: var(--colorBlanco);
     background-color: var(--colorAzul);
-    transition: .3s all ease-in;
+    transition: 0.3s all ease-in;
 }
+
+
 /* Responsive */
-@media only screen and (max-width: 768px){
+
+@media only screen and (max-width: 768px) {
     .inscripciones-parrafo {
         text-align: center;
     }
 }
-@media only screen and (max-width: 576px){
+
+@media only screen and (max-width: 576px) {
     h3.club-galeria {
         font-size: 25px;
     }
@@ -434,16 +581,21 @@ input.submit-white:hover {
         width: 80%;
     }
 }
+
+
 /************* Index **************/
 
 
 /************* Calendario **************/
+
 .fechas-torneos {
     margin-bottom: 70px;
 }
+
 .torneo-calendario {
     background-color: var(--colorAzul);
 }
+
 .torneo-calendario h2 {
     color: var(--colorBlanco);
     font-family: var(--raleway);
@@ -452,58 +604,61 @@ input.submit-white:hover {
     padding: 5px;
     margin: 0;
 }
+
 .card {
     color: var(--colorAzul);
     font-family: var(--raleway);
     font-weight: 700;
     text-align: center;
 }
+
 .info i {
     font-size: 30px;
 }
+
 .info {
     padding: 15px;
 }
-@media only screen and (max-width: 330px){
+
+@media only screen and (max-width: 330px) {
     .torneo-calendario h2 {
         word-break: break-all;
     }
 }
+
+
 /************* Calendario **************/
 
 
 /************* Torneos **************/
-.Torneos {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/3.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    text-align: center;
-    padding: 10px;
-}
+
 .Torneos h3 {
     color: var(--colorBlanco);
     font-family: var(--tradeWinds);
     font-weight: 700;
     margin: 55px;
 }
+
 .Torneos h5 {
     color: var(--colorBlanco);
     font-family: var(--anton);
     font-size: 20px;
     font-weight: 500;
 }
+
 .Torneos p {
     color: var(--colorBlanco);
     font-family: var(--raleway);
     font-weight: 300;
 }
+
 .listabotones {
     display: flex;
     justify-content: center;
     padding: 10px;
     margin-bottom: 2rem;
 }
+
 .listabotones li {
     padding: 10px;
     border: 2px solid var(--colorBlanco);
@@ -511,6 +666,7 @@ input.submit-white:hover {
     padding: 10px;
     margin: 10px;
 }
+
 .listabotones li a {
     font-size: 20px;
     font-family: var(--raleway);
@@ -518,11 +674,13 @@ input.submit-white:hover {
     text-decoration: none;
     color: var(--colorBlanco);
 }
+
 .listabotones li:hover {
     background-color: var(--colorGris);
-    transition: .3s all ease-in;
+    transition: 0.3s all ease-in;
 }
-@media only screen and (max-width: 360px){
+
+@media only screen and (max-width: 360px) {
     .Torneos h3 {
         text-align: left;
         font-size: 25px;
@@ -538,43 +696,66 @@ input.submit-white:hover {
         font-size: 15px;
     }
 }
+
+
 /************* Torneos **************/
+
+.torneos {
+    min-height: 100vh;
+}
+
+#carousel-torneos {
+    min-height: 10vh;
+}
 
 
 /************* Inscripciones **************/
+
 #formulario-inscripcion h3 {
     font-size: 20px;
 }
-#formulario-inscripcion input, #formulario-inscripcion textarea {
+
+#formulario-inscripcion input,
+#formulario-inscripcion textarea {
     text-transform: uppercase;
 }
+
 #formulario-inscripcion label {
     color: var(--colorAzul);
     font-family: var(--anton);
     font-size: 20px;
 }
+
 #formulario-inscripcion label span {
     font-size: 15px;
 }
-#formulario-inscripcion input[type=submit] {
+
+#formulario-inscripcion input[type="submit"] {
     width: 50%;
     padding: 10px;
 }
-#formulario-inscripcion input[type=submit]:hover {
+
+#formulario-inscripcion input[type="submit"]:hover {
     background-color: var(--colorGris);
     color: var(--colorAzul);
     border: solid 2px var(--colorAzul);
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
+
+
 /************* Inscripciones **************/
 
 
 /************* Ranking **************/
+
+
 /* Categorías */
+
 a.active {
     background-color: var(--colorAzul);
     color: var(--colorBlanco);
 }
+
 .botonCategoria {
     border: 4px solid var(--colorAzul);
     border-radius: 360px;
@@ -585,58 +766,154 @@ a.active {
     font-family: var(--anton);
     margin: 1px auto;
 }
+
 .botonCategoria:hover {
     background-color: var(--colorAzul);
-    transition: .3s all ease-in;
+    transition: 0.3s all ease-in;
     color: var(--colorBlanco);
     cursor: pointer;
     text-decoration: none;
 }
+
+
 /* Tablas */
+
 #tablas-ranking {
-    margin: 0 auto!important;
+    margin: 0 auto !important;
 }
-@media only screen and (max-width: 770px){
+
+table#ranking thead th,
+table#pesos thead th {
+    border: solid 5px var(--colorAzul);
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    font-size: 26px;
+    padding: 10px;
+}
+
+table#ranking,
+table#pesos {
+    font-family: var(--anton);
+    width: 100%;
+    margin: 0 auto 20px auto;
+}
+
+table#ranking img,
+table#pesos img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+}
+
+table#ranking thead input,
+table#pesos thead input {
+    border: none;
+    border-radius: 100px;
+    background-color: var(--colorBlanco);
+    height: 25px;
+    font-family: var(--anton);
+    color: var(--colorAzul);
+    text-align: center;
+}
+
+table#ranking tbody td,
+table#pesos tbody td {
+    border: solid 5px var(--colorAzul);
+    color: var(--colorAzul);
+    padding: 5px;
+    cursor: pointer;
+}
+
+table#ranking tbody td:hover,
+table#pesos tbody td:hover {
+    color: var(--colorBlanco);
+    background-color: var(--colorAzul);
+    transition: all 0.3s ease-in;
+}
+
+table#ranking tbody td.active,
+table#pesos tbody td.active {
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+}
+
+@media only screen and (max-width: 770px) {
     .tabla-competidores {
         overflow: scroll;
     }
 }
+
+
 /************* Ranking **************/
 
-/* MEDIA */
-@media (max-width: 992px) {
-    h1.titulo {
-        font-size: 32px;
-    }
-    .itemnav {
-        padding: 0 10px;
-    }
-    .ranking-header {
-        padding: 20px 20px;
-        font-size: 15px;
-    }
-    .competidor {
-        font-size: 14px;
-    }
+
+/************* Patrocinadores **************/
+
+.seccion-patrocinadores {
+    margin-bottom: 4rem;
 }
 
-@media (max-width: 576px) {
-    h1.titulo {
-        font-size: 21px;
-        text-align: center;
-    }
-    .logo {
-        width: 80%;
-    }
+.seccion-patrocinadores h2 {
+    margin-bottom: 0;
 }
 
-@media (max-width: 360px) {
-    h1.titulo {
-        margin-right: 5px;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        hyphens: auto;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-    }
+.seccion-patrocinadores h4 {
+    text-align: center;
+    margin-bottom: 4rem;
 }
+
+.patrocinadores {
+    margin-bottom: 4rem;
+    justify-content: space-evenly;
+}
+
+.patrocinadores div {
+    margin-bottom: 2rem;
+}
+
+.contenedor-patrocinador {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-patrocinador {
+    height: 100%;
+    max-width: 100% !important;
+    object-fit: contain !important;
+}
+
+.post__thumb img,
+.entry-thumb img {
+    display: block;
+    object-fit: contain !important;
+    height: 100%;
+    max-width: 100% !important;
+}
+
+
+/************* Patrocinadores **************/
+
+
+/************* Objetivos **************/
+
+.objetivos {
+    margin-bottom: 4rem;
+}
+
+.objetivos li {
+    list-style: inherit;
+}
+
+.objetivos h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.objetivos span {
+    font-weight: bold;
+}
+
+
+/************* Objetivos **************/

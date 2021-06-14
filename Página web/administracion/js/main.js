@@ -6,6 +6,7 @@ const formulario_cEmail = /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'
 const formulario_cTelefono = /^(\(([0-9])+\) )([0-9])+$/;
 const formulario_cReglasTorneo = /^(\*( ([A-Za-z0-9]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+)+)(\n\*( ([A-Za-z0-9]|ñ|Ñ|á|Á|é|É|í|Í|ó|Ó|ú|Ú)+)+)*$/;
 const formulario_cHora = /^[0-9][0-9]:[0-9][0-9]$/;
+const formulario_cNacimiento = /^([0-9][0-9])\/([0-9][0-9])\/([0-9][0-9][0-9][0-9])$/;
 /************* Expresiones Regulares **************/
 
 
@@ -96,6 +97,9 @@ function actualizarBD(tabla, datos) {
             else if(tipoOperacion.respuesta == "fecha_fallida"){
                 notificacionError("HA OCURRIDO UN ERROR", `La fecha no pudo ser añadida al sistema`); 
             }
+            else if(tipoOperacion.respuesta == "puntos_fallidos"){
+                notificacionError("HA OCURRIDO UN ERROR", `Los puntos del torneo seleccionado ya se le han asignado a este usuario; si cometió un error... por favor comuníquese con un administrador`); 
+            }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             mostrarFallaTecnica();
@@ -149,7 +153,7 @@ function leerFormulario(formulario, accion) {
             /* Género */
             if(!validarRadioButton(generoCompetidor)) return false;
             /* Nacimiento */
-            if(!validarCampo(nacimientoCompetidor, 0, 9999, 'libre')) return false;
+            if(!validarCampo(nacimientoCompetidor, 0, 9999, formulario_cNacimiento)) return false;
             /* Foto */
             if(accion == "crear"){
                 if(!validarFoto(fotoCompetidor)) return false;
@@ -190,16 +194,24 @@ function leerFormulario(formulario, accion) {
             //Obtengo los valores
             /* Input Text */
             const nombreTorneo = $('#nombre-torneo');
-            const reglasTorneo = $('#reglas-torneo');
             /* Checkbox Buttons */
             const categoriasTorneo = $('#categorias-torneo input');
+            /* Archivo */
+            const reglasTorneo = $('#reglas-torneo');
+            // Arhivo imagen
+            const imagenTorneo = $('.fotarda');
             //Realizo las validaciones correspondientes para los campos (Aquellos que no requieran longitud se establecen en '0' y '9999')
             /* Nombre */
             if(!validarCampo(nombreTorneo, 5, 30, formulario_cNombreTorneo)) return false;
             /* Categorias */
             if(!validarCheckboxButton(categoriasTorneo)) return false;
             /* Reglas */
-            if(!validarCampo(reglasTorneo, 10, 5000, formulario_cReglasTorneo)) return false;
+            if(accion == "crear"){
+                if(!validarArchivo(reglasTorneo)) return false;
+            }
+            if(accion == "crear"){
+                if(!validarFoto(imagenTorneo)) return false;
+            }
             //Envio los datos hacia la base de datos
             const datos = new FormData();
             if(accion == 'editar'){
@@ -208,7 +220,8 @@ function leerFormulario(formulario, accion) {
             }
             datos.append('nombre', nombreTorneo.val().toUpperCase());
             datos.append('categorias', obtenerValorCheckBox(categoriasTorneo));
-            datos.append('reglas', reglasTorneo.val().toUpperCase());
+            datos.append('reglas', reglasTorneo.prop("files")[0]);
+            datos.append('imagen', imagenTorneo.prop("files")[0]);
             datos.append('accion', accion);
             actualizarBD('torneo', datos);
         }
@@ -248,7 +261,7 @@ function validarFormatoCampo(campo, formato) {
 }
 function validarRadioButton(radioButton) {
     if(!radioButton.is(':checked')) {
-        let campoError = radioButton.parent().parent()[0];
+        let campoError = radioButton.parent().parent().parent()[0];
             campoError = $(campoError).attr('value');
         notificacionError('¡ERROR!', 'Debes seleccionar una opción en el campo ' + campoError);
         return false;
@@ -257,7 +270,7 @@ function validarRadioButton(radioButton) {
 }
 function validarCheckboxButton(checkboxButton) {
     let contador = 0;
-    let campoError = checkboxButton.parent().parent()[0];
+    let campoError = checkboxButton.parent().parent().parent()[0];
         campoError = $(campoError).attr('value');
     $(checkboxButton).each(function (index, element) {
         if($(this).is(':checked')){
@@ -271,6 +284,13 @@ function validarCheckboxButton(checkboxButton) {
 function validarFoto(archivo) {
     if(!archivo[0].files.length){
         notificacionError('¡ERROR!', 'No has subido una foto de forma correcta, verifica que el nombre del archivo figure en el campo foto para asegurarte de que se subió correctamente');
+        return false;
+    }
+    return true;
+}
+function validarArchivo(archivo) {
+    if(!archivo[0].files.length){       
+        notificacionError('¡ERROR!', 'No has subido un archivo de forma correcta, verifica que el nombre del archivo figure en el campo foto para asegurarte de que se subió correctamente');
         return false;
     }
     return true;
@@ -342,13 +362,56 @@ jQuery('#foto-competidor').change(function(){
         jQuery('div.'+idname).next().find('div').html(filename);
     }
 });
+jQuery('#reglas-torneo').change(function(){
+    
+    let archivoSubido = this["files"][0];
+    if((archivoSubido['size'] > 10000000)){
+        var idname = jQuery(this).attr('id');
+        jQuery('div.'+idname).next().find('div').html("ARCHIVO PESADO. MAX: 10MB");
+        this.value = '';
+    }
+    else if((archivoSubido['type'] != 'application/pdf') && (archivoSubido['type'] != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') && (archivoSubido['type'] != 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')){
+        var idname = jQuery(this).attr('id');
+        jQuery('div.'+idname).next().find('div').html("TIPO DE ARCHIVO NO SOPORTADO");
+        this.value = '';
+    }
+    else{
+        var filename = jQuery(this).val().split('\\').pop();
+        var idname = jQuery(this).attr('id');
+        jQuery('div.'+idname).next().find('div').html(filename);
+    }
+});
+jQuery('.fotarda').change(function(){
+    
+    let archivoSubido = this["files"][0];
+    if((archivoSubido['size'] > 10000000)){
+        var idname = jQuery(this).attr('id');
+        jQuery('div.'+idname).next().find('div').html("ARCHIVO PESADO. MAX: 10MB");
+        this.value = '';
+    }
+    else if((archivoSubido['type'] != 'image/png') && (archivoSubido['type'] != 'image/jpg') && (archivoSubido['type'] != 'image/jpeg')){
+        var idname = jQuery(this).attr('id');
+        jQuery('div.'+idname).next().find('div').html("TIPO DE ARCHIVO NO SOPORTADO");
+        this.value = '';
+    }
+    else{
+        var filename = jQuery(this).val().split('\\').pop();
+        var idname = jQuery(this).attr('id');
+        jQuery('div.'+idname).next().find('div').html(filename);
+    }
+});
 //Configuración para campos que contengan fechas
-$('.datepicker-nacimiento').datepicker({
-    title: 'Fecha de Nacimiento',
-    endDate: '-10y'
+$('#nacimiento-competidor').on('input', function () {
+    let valorActual = $(this).val();
+    let longitud = valorActual.length;
+    //Ingreso los elementos y evito que se ingresen mas caracteres de lo deseado
+    if(valorActual.includes('Z') || valorActual.includes('z')) $(this).val('');
+    else if(longitud == 2 || longitud == 5) $(this).val(valorActual + '/');
+    else if(longitud == 11) $(this).val(valorActual.slice(0,-1));
 });
 $('.datepicker-fechas').datepicker({
     title: 'Fecha de Concurrencia',
+    format: 'yyyy-mm-dd',
     startDate: 'd'
 });
 //Configuración para las tablas de administracion
@@ -492,19 +555,21 @@ $(document).ready(function () {
         $(formularioSumarPuntos).on('submit', function () {
             //Obtengo los campos
             const idCompetidor = $(this).attr('data-usuario');
-            const puntos_senior = $(this[0]);
-            const puntos_cadete = $(this[1]);
-            const puntos_kyu_graduado = $(this[2]);
-            const puntos_kyu_novicio = $(this[3]);
-            const puntos_infantil_b = $(this[4]);
+            const torneo_seleccionado = $(this[0])
+            const puntos_senior = $(this[1]);
+            const puntos_cadete = $(this[2]);
+            const puntos_kyu_graduado = $(this[3]);
+            const puntos_kyu_novicio = $(this[4]);
+            const puntos_infantil_b = $(this[5]);
             //Realizo la operación en la base de datos
             const datos = new FormData();
             datos.append('id', idCompetidor);
-            datos.append('puntos-senior', parseInt(puntos_senior.attr('data-valor-inicial')) + parseInt(puntos_senior.val()));
-            datos.append('puntos-cadete', parseInt(puntos_cadete.attr('data-valor-inicial')) + parseInt(puntos_cadete.val()));
-            datos.append('puntos-kyu-graduado', parseInt(puntos_kyu_graduado.attr('data-valor-inicial')) + parseInt(puntos_kyu_graduado.val()));
-            datos.append('puntos-kyu-novicio', parseInt(puntos_kyu_novicio.attr('data-valor-inicial')) + parseInt(puntos_kyu_novicio.val()));
-            datos.append('puntos-infantil-b', parseInt(puntos_infantil_b.attr('data-valor-inicial')) + parseInt(puntos_infantil_b.val()))
+            datos.append('torneo', torneo_seleccionado.val());
+            datos.append('puntos-senior', parseInt(puntos_senior.val()));
+            datos.append('puntos-cadete', parseInt(puntos_cadete.val()));
+            datos.append('puntos-kyu-graduado', parseInt(puntos_kyu_graduado.val()));
+            datos.append('puntos-kyu-novicio', parseInt(puntos_kyu_novicio.val()));
+            datos.append('puntos-infantil-b', parseInt(puntos_infantil_b.val()));
             datos.append('accion', 'sumar-puntos');
 
             actualizarBD('competidor', datos);
